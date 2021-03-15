@@ -1,0 +1,13 @@
+#!/bin/bash
+
+variable="Eu estou logado como usuário $USER"
+echo $variable
+
+variable='Eu estou logado como usuário $USER'
+echo $variable
+
+variable="Meu diretório atual é o `pwd`"
+echo $variable
+
+echo "Qual é o seu nome? " ; read nome
+echo "Bem-vindo(a) $nome!" 

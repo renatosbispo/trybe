@@ -1,0 +1,55 @@
+#!/bin/bash
+
+N_MIN="1"
+N_MAX="100"
+
+play=true
+while [ $play = true ]
+do
+  rand=$(( $N_MIN + $RANDOM % $N_MAX ))
+  guessed=false
+  while [ $guessed != true ]
+  do
+    echo "Escolha um número entre $N_MIN e $N_MAX:"
+    read num
+
+    if ! [[ "$num" =~ ^[0-9]+$ ]]
+    then
+      echo "ERRO: Entrada inválida!"
+    elif [ "$num" -lt $N_MIN ] || [ "$num" -gt $N_MAX ]
+    then
+      echo "ERRO: Seu número deve estar entre $N_MIN e $N_MAX!"
+    elif [ "$num" -eq $rand ]
+    then
+      echo "BOA! Parabéns, você acertou! :D"
+      guessed=true
+    elif [ "$num" -lt "$rand" ]
+    then
+      echo "Muito baixo!"
+    elif [ "$num" -gt $rand ]
+    then
+      echo "Muito alto!"
+    else
+      echo "ERRO: Entrada inválida!"
+    fi
+  done
+
+  do=true
+  while [ $do = true ] || [ $valid_ans = false ]
+  do
+    do=false
+    valid_ans=true
+    echo "Jogar de novo? [1] Sim [2] Não" ; read ans
+    if [ "$ans" =  1 ]
+    then
+      play=true
+      clear
+    elif [ "$ans" = 2 ]
+    then
+      play=false
+    else
+      echo "ERRO: Entrada inválida!"
+      valid_ans=false
+    fi
+  done
+done

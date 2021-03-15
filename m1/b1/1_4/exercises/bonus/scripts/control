@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Quantos anos você tem?" ; read idade
+if [ $idade -lt "70" ]
+then
+  echo "Você NÃO pode tomar vacina!"
+else
+  echo "Você pode tomar vacina!"
+fi
