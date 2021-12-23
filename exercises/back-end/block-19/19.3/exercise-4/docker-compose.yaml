@@ -1,0 +1,40 @@
+# The mysql container takes a while to get the database ready after it's up,
+# so Ghost will initially fail to connect to it but eventually it will work.
+
+# After docker-compose up is ran for the first time, the mysql volume will be
+# created and subsequent executions of the command won't face the problem
+# described above as long as the volume exists.
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: db
+    volumes:
+      - db-volume:/var/lib/mysql
+    networks:
+      - blog
+    environment:
+      MYSQL_ROOT_PASSWORD: example123
+
+  ghost:
+    image: ghost:4.32.0-alpine
+    container_name: ghost
+    networks:
+      - blog
+    ports:
+      - "2368:2368"
+    restart: always
+    environment:
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: example123
+      database__connection__database: ghost
+    depends_on:
+      - db
+
+volumes:
+  db-volume:
+
+networks:
+  blog: {}
