@@ -1,0 +1,24 @@
+# The mysql container takes a while to get the database ready after it's up,
+# so Ghost will initially fail to connect to it but eventually it will work.
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: example123
+
+  ghost:
+    image: ghost:4.32.0-alpine
+    container_name: ghost
+    ports:
+      - "2368:2368"
+    restart: always
+    environment:
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: example123
+      database__connection__database: ghost
+    depends_on:
+      - db
