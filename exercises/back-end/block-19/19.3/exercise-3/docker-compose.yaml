@@ -1,4 +1,4 @@
-# The mysql container takes a while to get the database ready after it's up,
+# The mysql container takes a while to get the service ready after it's up,
 # so Ghost will initially fail to connect to it but eventually it will work.
 
 services:
