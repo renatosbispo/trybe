@@ -9,6 +9,9 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>
+          This paragraph was added to test <code>docker-compose up --build -d</code>.
+        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
