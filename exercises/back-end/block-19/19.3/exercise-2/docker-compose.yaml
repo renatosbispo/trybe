@@ -1,0 +1,6 @@
+services:
+  blog:
+    image: ghost:4.32.0-alpine
+    ports:
+      - "2368:2368"
+    restart: always

@@ -1,0 +1,7 @@
+services:
+  front-end:
+    build:
+      context: .
+      target: prod
+    ports:
+      - 8080:80
