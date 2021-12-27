@@ -16,3 +16,7 @@ INSERT INTO sakila.category (name) VALUES
 ('Fantasy'),
 ('Thriller'),
 ('Western');
+
+-- 5. Insert a new store into sakila.store.
+INSERT INTO sakila.store (manager_staff_id, address_id)
+VALUES (6, 10);
