@@ -15,3 +15,8 @@ WHERE title = 'Procurando Nemo';
 UPDATE Pixar.Movies
 SET director = 'Andrew Staton'
 WHERE title = 'Procurando Nemo';
+
+-- Exercise 4
+UPDATE Pixar.Movies
+SET title = 'Ratatouille', `year` = 2007
+WHERE title = 'ratatui';
