@@ -10,3 +10,9 @@ INSERT INTO sakila.staff (first_name, last_name, address_id, store_id, username)
 -- 3. Select the first five names and last names from sakila.customer and insert them into sakila.actor.
 INSERT INTO sakila.actor (first_name, last_name)
 	SELECT first_name, last_name FROM sakila.customer ORDER BY customer_id ASC LIMIT 5;
+
+-- 4. Insert three categories into sakila.category.
+INSERT INTO sakila.category (name) VALUES
+('Fantasy'),
+('Thriller'),
+('Western');
