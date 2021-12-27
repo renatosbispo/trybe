@@ -11,3 +11,7 @@ DELETE FROM sakila.film_actor WHERE actor_id IN (
 );
 
 DELETE FROM sakila.actor WHERE first_name = 'MATTHEW';
+
+-- 3. Delete from sakila.film_text every entry where the description contains
+--    the word 'saga'.
+DELETE FROM sakila.film_text WHERE description LIKE '%saga%';
