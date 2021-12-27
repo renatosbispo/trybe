@@ -16,3 +16,13 @@ SET rental_rate = 25.00
 WHERE length > 100
 AND rating IN ('G', 'PG', 'PG-13')
 AND replacement_cost > 20
+
+-- 4. Update the rental rate to $10 for movies with a length between 0 and 100,
+--    and to $20 for movies with a length greater than 100.
+UPDATE sakila.film
+SET rental_rate = (
+  CASE
+    WHEN length BETWEEN 0 AND 100 THEN 10.00
+    WHEN length > 100 THEN 20.00
+  END
+);
