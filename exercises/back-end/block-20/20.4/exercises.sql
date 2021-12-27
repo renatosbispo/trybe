@@ -10,3 +10,8 @@ INSERT INTO Pixar.BoxOffice (movie_id, rating, domestic_sales, international_sal
 SELECT id, 6.8, 450000000, 370000000
 FROM Pixar.Movies
 WHERE title = 'Procurando Nemo';
+
+-- Exercise 3
+UPDATE Pixar.Movies
+SET director = 'Andrew Staton'
+WHERE title = 'Procurando Nemo';
