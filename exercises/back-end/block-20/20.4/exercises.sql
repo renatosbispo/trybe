@@ -41,3 +41,10 @@ UNION
   FROM Pixar.Movies
   WHERE title = 'WALL-E'
 );
+
+-- Exercise 6
+DELETE FROM Pixar.BoxOffice WHERE movie_id IN (
+	SELECT id FROM Pixar.Movies WHERE title = 'WALL-E'
+);
+
+DELETE FROM Pixar.Movies WHERE title = 'WALL-E';
