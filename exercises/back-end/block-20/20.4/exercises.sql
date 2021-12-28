@@ -65,3 +65,10 @@ WHERE domestic_sales > 400e6;
 UPDATE Pixar.BoxOffice
 SET rating = 6.0
 WHERE domestic_sales > 200e6 AND international_sales < 300e6;
+
+-- Exercise 10 (Bonus)
+DELETE FROM Pixar.BoxOffice WHERE movie_id IN (
+	SELECT id FROM Pixar.Movies WHERE length_minutes < 100
+);
+
+DELETE FROM Pixar.Movies WHERE length_minutes < 100;
