@@ -60,3 +60,8 @@ DELETE FROM Pixar.Movies WHERE director = 'Andrew Staton';
 UPDATE Pixar.BoxOffice
 SET rating = 9.0
 WHERE domestic_sales > 400e6;
+
+-- Exercise 9 (Bonus)
+UPDATE Pixar.BoxOffice
+SET rating = 6.0
+WHERE domestic_sales > 200e6 AND international_sales < 300e6;
