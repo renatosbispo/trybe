@@ -21,3 +21,23 @@ WHERE title = 'Procurando Nemo';
 UPDATE Pixar.Movies
 SET title = 'Ratatouille', `year` = 2007
 WHERE title = 'ratatui';
+
+-- Exercise 5
+INSERT INTO Pixar.BoxOffice (movie_id, rating, domestic_sales, international_sales)
+(
+  SELECT id, 8.5, 300000000, 250000000
+  FROM Pixar.Movies
+  WHERE title = 'Monstros SA'
+)
+UNION
+(
+  SELECT id, 7.4, 460000000, 510000000
+  FROM Pixar.Movies
+  WHERE title = 'Os Incríveis'
+)
+UNION
+(
+  SELECT id, 9.9, 290000000, 280000000
+  FROM Pixar.Movies
+  WHERE title = 'WALL-E'
+);
