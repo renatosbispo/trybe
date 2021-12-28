@@ -48,3 +48,10 @@ DELETE FROM Pixar.BoxOffice WHERE movie_id IN (
 );
 
 DELETE FROM Pixar.Movies WHERE title = 'WALL-E';
+
+-- Exercise 7
+DELETE FROM Pixar.BoxOffice WHERE movie_id IN (
+	SELECT id FROM Pixar.Movies WHERE director = 'Andrew Staton'
+);
+
+DELETE FROM Pixar.Movies WHERE director = 'Andrew Staton';
