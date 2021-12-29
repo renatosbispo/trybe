@@ -26,3 +26,8 @@ FROM hr.employees;
 SELECT JOB_ID , COUNT(*)
 FROM hr.employees
 WHERE JOB_ID = 'IT_PROG';
+
+-- Exercise 7
+SELECT JOB_ID, SUM(SALARY)
+FROM hr.employees
+GROUP BY JOB_ID;
