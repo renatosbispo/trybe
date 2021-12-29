@@ -13,3 +13,11 @@ ORDER BY AVG(SALARY) DESC;
 -- Exercise 4
 SELECT SUM(SALARY)
 FROM hr.employees;
+
+-- Exercise 5
+SELECT
+	ROUND(MAX(SALARY), 2),
+    ROUND(MIN(SALARY), 2),
+    ROUND(SUM(SALARY), 2),
+    ROUND(AVG(SALARY), 2)
+FROM hr.employees;
