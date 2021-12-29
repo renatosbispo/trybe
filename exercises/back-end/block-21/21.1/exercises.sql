@@ -21,3 +21,8 @@ SELECT
     ROUND(SUM(SALARY), 2),
     ROUND(AVG(SALARY), 2)
 FROM hr.employees;
+
+-- Exercise 6
+SELECT JOB_ID , COUNT(*)
+FROM hr.employees
+WHERE JOB_ID = 'IT_PROG';
