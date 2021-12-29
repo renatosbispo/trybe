@@ -9,3 +9,7 @@ SELECT JOB_ID, AVG(SALARY)
 FROM hr.employees
 GROUP BY JOB_ID
 ORDER BY AVG(SALARY) DESC;
+
+-- Exercise 4
+SELECT SUM(SALARY)
+FROM hr.employees;
