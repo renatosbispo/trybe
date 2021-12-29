@@ -9,3 +9,6 @@ SELECT IF(220 MOD 12 > 0, CONCAT('Sim, ', 220 MOD 12), 'Não') AS 'Lugares sobra
 
 -- Exercise 1
 SELECT ROUND(15 + (RAND() * 5));
+
+-- Exercise 2
+SELECT ROUND(15.7515971, 5);
