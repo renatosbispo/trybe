@@ -44,3 +44,9 @@ FROM hr.employees
 GROUP BY JOB_ID
 HAVING JOB_ID <> 'IT_PROG'
 ORDER BY AVG(SALARY) DESC;
+
+-- Exercise 10
+SELECT department_id, AVG(SALARY), COUNT(*)
+FROM hr.employees
+GROUP BY department_id
+HAVING COUNT(*) > 10;
