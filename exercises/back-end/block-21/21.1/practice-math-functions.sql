@@ -6,3 +6,6 @@ SELECT 220 DIV 12;
 
 -- DIV/MOD challenge 3
 SELECT IF(220 MOD 12 > 0, CONCAT('Sim, ', 220 MOD 12), 'Não') AS 'Lugares sobrando';
+
+-- Exercise 1
+SELECT ROUND(15 + (RAND() * 5));
