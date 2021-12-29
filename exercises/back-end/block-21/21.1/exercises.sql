@@ -50,3 +50,9 @@ SELECT department_id, AVG(SALARY), COUNT(*)
 FROM hr.employees
 GROUP BY department_id
 HAVING COUNT(*) > 10;
+
+-- Exercise 11
+SET SQL_SAFE_UPDATES = 0;
+UPDATE hr.employees
+SET PHONE_NUMBER = REPLACE(PHONE_NUMBER, '515', '777')
+WHERE PHONE_NUMBER LIKE '515%';
