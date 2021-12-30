@@ -67,3 +67,15 @@ INNER JOIN sakila.payment
 ON sakila.payment.staff_id = sakila.staff.staff_id
 WHERE YEAR(sakila.payment.payment_date) = 2006
 GROUP BY sakila.staff.staff_id;
+
+-- Exercise 7
+SELECT
+	sakila.actor.actor_id,
+    sakila.actor.first_name,
+    sakila.film_actor.film_id,
+    sakila.film.title
+FROM sakila.actor
+INNER JOIN sakila.film_actor
+ON sakila.actor.actor_id = sakila.film_actor.actor_id
+INNER JOIN sakila.film
+ON sakila.film_actor.film_id = sakila.film.film_id;
