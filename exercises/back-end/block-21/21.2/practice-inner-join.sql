@@ -45,3 +45,14 @@ INNER JOIN sakila.address
 ON sakila.customer.address_id = sakila.address.address_id
 WHERE sakila.address.district = 'California'
 AND sakila.customer.first_name LIKE '%rene%';
+
+-- Exercise 5
+SELECT
+    sakila.customer.first_name,
+    COUNT(sakila.address.address)
+FROM sakila.customer
+INNER JOIN sakila.address
+ON sakila.address.address_id = sakila.customer.address_id
+WHERE sakila.customer.active = 1
+GROUP BY sakila.customer.customer_id
+ORDER BY first_name DESC, last_name DESC;
