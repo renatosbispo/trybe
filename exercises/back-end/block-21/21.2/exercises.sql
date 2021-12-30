@@ -40,3 +40,16 @@ FROM Pixar.Theater
 LEFT JOIN Pixar.Movies
 ON Pixar.Theater.id = Pixar.Movies.theater_id
 ORDER BY Pixar.Theater.name ASC;
+
+-- Exercise 5
+SELECT
+    Pixar.Theater.name,
+    Pixar.Theater.location,
+	Pixar.Movies.title,
+    Pixar.Movies.director,
+    Pixar.Movies.year,
+    Pixar.Movies.length_minutes
+FROM Pixar.Theater
+RIGHT JOIN Pixar.Movies
+ON Pixar.Theater.id = Pixar.Movies.theater_id
+ORDER BY Pixar.Theater.name ASC;
