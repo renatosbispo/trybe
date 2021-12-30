@@ -32,3 +32,16 @@ INNER JOIN sakila.address
 ON sakila.customer.address_id = sakila.address.address_id
 ORDER BY sakila.customer.first_name DESC
 LIMIT 100;
+
+-- Exercise 4
+SELECT
+	sakila.customer.first_name,
+    sakila.customer.email,
+    sakila.customer.address_id,
+    sakila.address.address,
+    sakila.address.district
+FROM sakila.customer
+INNER JOIN sakila.address
+ON sakila.customer.address_id = sakila.address.address_id
+WHERE sakila.address.district = 'California'
+AND sakila.customer.first_name LIKE '%rene%';
