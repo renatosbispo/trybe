@@ -19,3 +19,16 @@ SELECT
 FROM sakila.staff
 INNER JOIN sakila.address
 ON sakila.staff.address_id = sakila.address.address_id;
+
+-- Exercise 3
+SELECT
+	sakila.customer.customer_id,
+    sakila.customer.first_name,
+    sakila.customer.email,
+    sakila.address.address_id,
+    sakila.address.address
+FROM sakila.customer
+INNER JOIN sakila.address
+ON sakila.customer.address_id = sakila.address.address_id
+ORDER BY sakila.customer.first_name DESC
+LIMIT 100;
