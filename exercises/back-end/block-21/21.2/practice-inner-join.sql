@@ -56,3 +56,14 @@ ON sakila.address.address_id = sakila.customer.address_id
 WHERE sakila.customer.active = 1
 GROUP BY sakila.customer.customer_id
 ORDER BY first_name DESC, last_name DESC;
+
+-- Exercise 6
+SELECT
+	sakila.staff.first_name,
+    sakila.staff.last_name,
+    AVG(sakila.payment.amount)
+FROM sakila.staff
+INNER JOIN sakila.payment
+ON sakila.payment.staff_id = sakila.staff.staff_id
+WHERE YEAR(sakila.payment.payment_date) = 2006
+GROUP BY sakila.staff.staff_id;
