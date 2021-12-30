@@ -53,3 +53,18 @@ FROM Pixar.Theater
 RIGHT JOIN Pixar.Movies
 ON Pixar.Theater.id = Pixar.Movies.theater_id
 ORDER BY Pixar.Theater.name ASC;
+
+-- Exercise 6
+SELECT
+	Pixar.Movies.id,
+	Pixar.Movies.title,
+    Pixar.Movies.director,
+    Pixar.Movies.year,
+    Pixar.Movies.length_minutes,
+    Pixar.Movies.theater_id,
+    Pixar.BoxOffice.rating
+FROM Pixar.Movies
+INNER JOIN Pixar.BoxOffice
+ON Pixar.Movies.id = Pixar.BoxOffice.movie_id
+WHERE Pixar.BoxOffice.rating > 8
+ORDER BY Pixar.BoxOffice.rating DESC;
