@@ -18,3 +18,12 @@ FROM Pixar.Movies
 INNER JOIN Pixar.BoxOffice
 ON Pixar.Movies.id = Pixar.BoxOffice.movie_id
 WHERE Pixar.BoxOffice.international_sales > Pixar.BoxOffice.domestic_sales;
+
+-- Exercise 3
+SELECT
+	Pixar.Movies.title,
+    Pixar.BoxOffice.rating
+FROM Pixar.Movies
+INNER JOIN Pixar.BoxOffice
+ON Pixar.Movies.id = Pixar.BoxOffice.movie_id
+ORDER BY Pixar.BoxOffice.rating DESC;
