@@ -17,16 +17,21 @@ const scripts = [
     name: 'Factorial',
     path: './factorial.js',
   },
+  {
+    name: 'Fibonacci',
+    path: './fibonacci.js',
+  },
 ];
 
 console.log('My Scripts');
 console.log('----------');
 
 scripts.forEach(({ name }, index) => {
-  console.log(`[${index + 1}] ${name}`)
+  console.log(`[${index + 1}] ${name}`);
 });
 
-const chosenScriptIndex = readline.questionInt('\nChoose a script to run: ') - 1;
+const chosenScriptIndex =
+  readline.questionInt('\nChoose a script to run: ') - 1;
 const chosenScript = scripts[chosenScriptIndex];
 
 console.log(`\nRunning ${chosenScript.path}...\n`);

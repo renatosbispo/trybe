@@ -9,6 +9,7 @@
     "average-speed": "node average-speed.js",
     "lottery": "node lottery.js",
     "factorial": "node factorial.js",
+    "fibonacci": "node fibonacci.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Renato Bispo",
