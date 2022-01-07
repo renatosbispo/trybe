@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "imc": "node imc.js",
+    "bmi": "node bmi.js",
+    "average-speed": "node average-speed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Renato Bispo",
