@@ -6,11 +6,13 @@
   "scripts": {
     "bmi": "node bmi.js",
     "average-speed": "node average-speed.js",
+    "lottery": "node lottery.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Renato Bispo",
   "license": "MIT",
   "dependencies": {
+    "lodash": "^4.17.21",
     "readline-sync": "^1.4.10"
   }
 }
