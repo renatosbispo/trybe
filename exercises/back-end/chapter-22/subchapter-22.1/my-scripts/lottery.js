@@ -4,8 +4,8 @@ const _ = require('lodash');
 let wannaPlayAgain = true;
 
 while (wannaPlayAgain) {
-  const chosenNumber = readline.questionInt('Choose a number (1-10): ');
-  const drawnNumber = _.random(1, 10);
+  const chosenNumber = readline.questionInt('Choose a number (0-10): ');
+  const drawnNumber = _.random(10);
 
   const resultMessage = chosenNumber === drawnNumber
     ? 'Congratulations, you won!'
