@@ -8,6 +8,7 @@
     "bmi": "node bmi.js",
     "average-speed": "node average-speed.js",
     "lottery": "node lottery.js",
+    "factorial": "node factorial.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Renato Bispo",

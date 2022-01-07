@@ -13,6 +13,10 @@ const scripts = [
     name: 'Lottery',
     path: './lottery.js',
   },
+  {
+    name: 'Factorial',
+    path: './factorial.js',
+  },
 ];
 
 console.log('My Scripts');
