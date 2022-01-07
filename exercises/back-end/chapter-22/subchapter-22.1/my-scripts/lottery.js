@@ -7,9 +7,10 @@ while (wannaPlayAgain) {
   const chosenNumber = readline.questionInt('Choose a number (0-10): ');
   const drawnNumber = _.random(10);
 
-  const resultMessage = chosenNumber === drawnNumber
-    ? 'Congratulations, you won!'
-    : 'Whoops... You lost, maybe next time.'
+  const resultMessage =
+    chosenNumber === drawnNumber
+      ? 'Congratulations, you won!'
+      : 'Whoops... You lost, maybe next time.';
 
   console.log(`\nDrawn number: ${drawnNumber}`);
   console.log(`${resultMessage}\n`);

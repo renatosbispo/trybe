@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "bmi": "node bmi.js",
     "average-speed": "node average-speed.js",
     "lottery": "node lottery.js",
