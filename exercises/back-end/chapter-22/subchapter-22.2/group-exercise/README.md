@@ -1,3 +1,5 @@
+**Exercise original repo:** https://github.com/tryber/sd-014-b-live-lectures/tree/lecture/22.2-mentoria_invertida.
+
 # Mentoria Técnica - Leitura de arquivos com módulo fs do Node.js
 ### Tempo sugerido: 1 hora e 30 minutos
 
@@ -22,4 +24,3 @@
 3. Faça a mesma coisa com _async-await_.
 
 Dicas: utilizem console.log durante a execução das resoluções para facilitar a visualização da ordem de execução no terminal.
-  
