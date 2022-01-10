@@ -1,4 +1,4 @@
-const { printOnPromiseResolve, printOnPromiseReject } = require('./utils.js');
+const { printOnPromiseResolve, printOnPromiseReject } = require('./utils');
 
 function exercise1(number1, number2, number3) {
   return new Promise((resolve, reject) => {

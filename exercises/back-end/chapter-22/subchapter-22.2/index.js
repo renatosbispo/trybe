@@ -1,5 +1,6 @@
-const { exercise1, exercise2, exercise3 } = require('./exercises.js');
-const { printOnPromiseResolve, printOnPromiseReject } = require('./utils.js');
+const { exercise1, exercise2, exercise3 } = require('./exercises1to3');
+const { printOnPromiseResolve, printOnPromiseReject } = require('./utils');
+const { exercise4part1 } = require('./exercise4');
 
 function printExerciseHeader(exerciseNumber) {
   const exerciseTitle = `\nExercise ${exerciseNumber}`;
@@ -31,4 +32,7 @@ async function runExercise1() {
 
   printExerciseHeader(3);
   await exercise3();
+
+  printExerciseHeader(4);
+  await exercise4part1();
 })();
