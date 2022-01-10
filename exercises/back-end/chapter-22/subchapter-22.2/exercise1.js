@@ -18,11 +18,4 @@ function exercise1(number1, number2, number3) {
   });
 }
 
-(async () => {
-  try {
-    const result = await exercise1(7, 3, 5);
-    console.log(result);
-  } catch (error) {
-    console.log(error);
-  }
-})();
+module.exports = exercise1;
