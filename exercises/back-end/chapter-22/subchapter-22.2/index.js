@@ -9,6 +9,7 @@ const {
   exercise4part6,
 } = require('./exercise4');
 const { exercise5 } = require('./exercise5');
+const { exercise6 } = require('./exercise6');
 
 function printExerciseHeader(exerciseNumber) {
   const exerciseTitle = `\nExercise ${exerciseNumber}`;
@@ -65,4 +66,7 @@ async function runExercise4part2(desiredSimpsonId) {
 
   printExerciseHeader('5');
   await exercise5();
+
+  printExerciseHeader('6');
+  await exercise6();
 })();
