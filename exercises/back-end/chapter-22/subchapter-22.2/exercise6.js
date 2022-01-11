@@ -17,7 +17,7 @@ async function exercise6() {
     const fileContent = await fs.promises.readFile(fileToReadPath, 'utf8');
 
     console.log(`\n${fileToReadPath}:\n`);
-    console.log(JSON.parse(fileContent));
+    console.log(fileContent);
   } catch (error) {
     console.error(`\n${error}`);
   }
