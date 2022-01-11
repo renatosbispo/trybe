@@ -25,27 +25,9 @@ function printExerciseHeader(exerciseNumber) {
   console.log(separator);
 }
 
-async function runExercise1() {
+async function runExercise(exercise, ...args) {
   try {
-    const result = await exercise1(7, 3, 5);
-    printOnPromiseResolve(result);
-  } catch (error) {
-    printOnPromiseReject(error);
-  }
-}
-
-async function runExercise4part2(desiredSimpsonId) {
-  try {
-    const data = await exercise4part2(desiredSimpsonId);
-    printOnPromiseResolve(data);
-  } catch (error) {
-    printOnPromiseReject(error);
-  }
-}
-
-async function runExercise8(number) {
-  try {
-    const data = await exercise8(number);
+    const data = args.length > 0 ? await exercise(...args) : await exercise();
     printOnPromiseResolve(data);
   } catch (error) {
     printOnPromiseReject(error);
@@ -54,7 +36,7 @@ async function runExercise8(number) {
 
 (async () => {
   printExerciseHeader('1');
-  await runExercise1();
+  await runExercise(exercise1, 7, 3, 5);
 
   printExerciseHeader('2');
   await exercise2();
@@ -65,7 +47,7 @@ async function runExercise8(number) {
   printExerciseHeader('4.1');
   await exercise4part1();
   printExerciseHeader('4.2');
-  await runExercise4part2(5);
+  await runExercise(exercise4part2, 5);
   printExerciseHeader('4.3');
   await exercise4part3();
   printExerciseHeader('4.4');
@@ -85,5 +67,5 @@ async function runExercise8(number) {
   await exercise7();
 
   printExerciseHeader('8');
-  runExercise8(75);
+  runExercise(exercise8, 75);
 })();
