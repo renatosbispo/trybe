@@ -1,7 +1,7 @@
 const { exercises1to3 } = require('../exercises1to3');
 const { expect } = require('chai');
 
-describe('Exercise 1', () => {
+describe('Exercises 1 to 3', () => {
   it('If the number is greater than 0 it must return "positive"', () => {
     const answer = exercises1to3(10);
 
