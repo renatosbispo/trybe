@@ -1,14 +1,18 @@
 function exercises1to3(number) {
+  if (typeof number !== 'number') {
+    return 'The value must be a number!';
+  }
+
   if (number < 0) {
-    return 'negative';
+    return 'Negative';
   }
 
   if (number === 0) {
-    return 'neutral';
+    return 'Neutral';
   }
 
   if (number > 0) {
-    return 'positive';
+    return 'Positive';
   }
 }
 
