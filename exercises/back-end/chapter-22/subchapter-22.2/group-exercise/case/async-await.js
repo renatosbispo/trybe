@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const file1Path = './arquivo1.txt';
 
-// Async/Await
+// async/await
 (async () => {
   try {
     const fileContents = await fs.promises.readFile(file1Path, 'utf8');

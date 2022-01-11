@@ -1,4 +1,4 @@
-const { exercise1, exercise2, exercise3 } = require('./exercises1to3');
+const { exercise1, exercise2, exercise3 } = require('./exercises1-3');
 const { printOnPromiseResolve, printOnPromiseReject } = require('./utils');
 const {
   exercise4part1,
