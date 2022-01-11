@@ -11,6 +11,7 @@ const {
 const { exercise5 } = require('./exercise5');
 const { exercise6 } = require('./exercise6');
 const { exercise7 } = require('./exercise7');
+const { exercise8 } = require('./exercise8');
 
 function printExerciseHeader(exerciseNumber) {
   const exerciseTitle = `\nExercise ${exerciseNumber}`;
@@ -36,6 +37,15 @@ async function runExercise1() {
 async function runExercise4part2(desiredSimpsonId) {
   try {
     const data = await exercise4part2(desiredSimpsonId);
+    printOnPromiseResolve(data);
+  } catch (error) {
+    printOnPromiseReject(error);
+  }
+}
+
+async function runExercise8(number) {
+  try {
+    const data = await exercise8(number);
     printOnPromiseResolve(data);
   } catch (error) {
     printOnPromiseReject(error);
@@ -73,4 +83,7 @@ async function runExercise4part2(desiredSimpsonId) {
 
   printExerciseHeader('7');
   await exercise7();
+
+  printExerciseHeader('8');
+  runExercise8(75);
 })();
