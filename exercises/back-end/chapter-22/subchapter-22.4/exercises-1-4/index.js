@@ -18,5 +18,18 @@ app.get('/ping', (_, res) => {
 // Exercise 2
 app.post('/hello', (req, res) => {
   const { name } = req.body;
+
+  res.status(200).json({ message: `Hello, ${name}!` });
+});
+
+// Exercise 3
+app.post('/greetings', (req, res) => {
+  const { name, age } = req.body;
+
+  if (age < 18) {
+    res.status(401).json({ message: 'Unauthorized.' });
+    return;
+  }
+
   res.status(200).json({ message: `Hello, ${name}!` });
 });
