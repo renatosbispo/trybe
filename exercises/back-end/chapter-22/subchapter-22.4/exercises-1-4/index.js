@@ -14,3 +14,9 @@ app.listen(port, () => {
 app.get('/ping', (_, res) => {
   res.status(200).json({ message: 'pong' });
 });
+
+// Exercise 2
+app.post('/hello', (req, res) => {
+  const { name } = req.body;
+  res.status(200).json({ message: `Hello, ${name}!` });
+});
