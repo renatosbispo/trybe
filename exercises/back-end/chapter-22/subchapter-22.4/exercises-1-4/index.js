@@ -33,3 +33,12 @@ app.post('/greetings', (req, res) => {
 
   res.status(200).json({ message: `Hello, ${name}!` });
 });
+
+// Exercise 4
+app.put('/users/:name/:age', (req, res) => {
+  const { name, age } = req.params;
+
+  res
+    .status(200)
+    .json({ message: `Your name is ${name} and you are ${age} years old.` });
+});
