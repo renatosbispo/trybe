@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
 });
-console.log(readSimpsons());
+
 app.get('/simpsons', (_, res) => {
   const { simpsons, error } = readSimpsons();
 
@@ -28,7 +28,7 @@ app.get('/simpsons/:id', (req, res) => {
   const { simpsons, error } = readSimpsons();
 
   if (error) {
-    res.status(500).send();
+    res.status(500).end();
     return;
   }
 
@@ -39,9 +39,38 @@ app.get('/simpsons/:id', (req, res) => {
   if (!targetSimpson) {
     res
       .status(404)
-      .json({ message: `No character with id ${targetId} was found.` });
+      .json({ message: `No character with ID ${targetId} was found.` });
     return;
   }
 
   res.status(200).json(targetSimpson);
+});
+
+app.post('/simpsons', (req, res) => {
+  const { id, name } = req.body;
+
+  const { simpsons, error: readError } = readSimpsons();
+
+  if (readError) {
+    res.status(500).end();
+    return;
+  }
+
+  const idExists = simpsons.some(({ id: simpsonId }) => simpsonId === id);
+
+  if (idExists) {
+    res
+      .status(409)
+      .json({ message: `A character with ID ${id} already exists.` });
+    return;
+  }
+
+  const { error: writeError } = writeSimpsons([...simpsons, { id, name }]);
+
+  if (writeError) {
+    res.status(500).end();
+    return;
+  }
+
+  res.status(204).end();
 });
