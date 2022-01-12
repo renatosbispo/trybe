@@ -98,3 +98,16 @@ app.post('/simpsons', (req, res) => {
 
   res.status(204).end();
 });
+
+app.post('/signup', (req, res) => {
+  const { email, password, firstName, phone } = req.body;
+
+  if (!email || !password || !firstName || !phone) {
+    res.status(401).json({ message: 'Missing field or fields.' });
+    return;
+  }
+
+  currentAuthorizationToken = generateToken();
+
+  res.status(200).json({ token: currentAuthorizationToken });
+});
