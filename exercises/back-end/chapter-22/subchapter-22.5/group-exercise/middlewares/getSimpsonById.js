@@ -1,9 +1,8 @@
-const fs = require('fs');
+const { loadSimpsons } = require('../utils');
 
 function getSimpsonById(req, res, next) {
   const { id } = req.params;
-  const simpsonsJson = fs.readFileSync('simpsons.json', 'utf8');
-  const simpsons = JSON.parse(simpsonsJson);
+  const simpsons = loadSimpsons();
 
   const simpson = simpsons.find(({ id: simpsonId }) => parseInt(id) === simpsonId);
 
