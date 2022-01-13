@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { pingMiddleware } = require('./middlewares/ping');
-const { helloMiddleware } = require('./middlewares/hello');
-const { greetingMiddleware } = require('./middlewares/greeting');
-const { getSimpsons } = require('./middlewares/getSimpsons');
-const { getSimpsonById } = require('./middlewares/getSimpsonById');
-const { createSimpson } = require('./middlewares/createSimpson');
+const pingMiddleware = require('./middlewares/ping');
+const helloMiddleware = require('./middlewares/hello');
+const greetingMiddleware = require('./middlewares/greeting');
+const getSimpsons = require('./middlewares/getSimpsons');
+const getSimpsonById = require('./middlewares/getSimpsonById');
+const createSimpson = require('./middlewares/createSimpson');
+const validateIdSimpson = require('./middlewares/validateIdSimpson');
+const validateNameSimpson = require('./middlewares/validateNameSimpson');
 
 const app = express();
 const port = 3000;
@@ -18,12 +20,13 @@ app.use(bodyParser.json());
 
 app.get('/ping', pingMiddleware);
 
-app.post('/ping', helloMiddleware);
+app.post('/hello', helloMiddleware);
 
 app.post('/greeting', greetingMiddleware);
 
 app.get('/simpsons', getSimpsons);
 
-app.get('/simpsons/:id', getSimpsonById);
+app.post('/simpsons', validateIdSimpson, validateNameSimpson, createSimpson);
 
-app.post('/simpsons', createSimpson);
+app.get('/simpson/:id', getSimpsonById);
+

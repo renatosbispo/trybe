@@ -1,10 +1,8 @@
-function getSimpsons(req, res, next) {
-  const simpsons = require('../simpsons.json');
-  res.status(200).send(simpsons);
+const { loadSimpsons } = require('../utils');
 
-  next();
+function getSimpsons(req, res) {
+  const simpsons = loadSimpsons();
+  res.status(200).json(simpsons);
 }
 
-module.exports = {
-  getSimpsons,
-};
+module.exports = getSimpsons;

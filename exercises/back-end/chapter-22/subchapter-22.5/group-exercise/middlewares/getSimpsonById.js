@@ -1,6 +1,6 @@
 const { loadSimpsons } = require('../utils');
 
-function getSimpsonById(req, res, next) {
+function getSimpsonById(req, res) {
   const { id } = req.params;
   const simpsons = loadSimpsons();
 
@@ -11,10 +11,6 @@ function getSimpsonById(req, res, next) {
   }
 
   res.status(404).json({ message: 'Simpson not found!' });
-
-  next();
 }
 
-module.exports = {
-  getSimpsonById,
-}
+module.exports = getSimpsonById;

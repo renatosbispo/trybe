@@ -1,11 +1,7 @@
-function helloMiddleware(req, res, next) {
+function helloMiddleware(req, res) {
   const { name } = req.body;
 
   res.status(201).json({ message: `Hello, ${name}!` });
-
-  next();
 }
 
-module.exports = {
-  helloMiddleware,
-};
+module.exports = helloMiddleware;

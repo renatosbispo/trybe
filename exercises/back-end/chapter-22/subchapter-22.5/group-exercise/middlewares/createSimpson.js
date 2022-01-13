@@ -1,6 +1,6 @@
 const { loadSimpsons, saveSimpsons } = require('../utils');
 
-function createSimpson(req, res, next) {
+function createSimpson(req, res) {
   const { id, name } = req.body;
 
   const simpsons = loadSimpsons();
@@ -8,10 +8,6 @@ function createSimpson(req, res, next) {
   saveSimpsons([...simpsons, { id, name }]);
 
   res.status(201).json({ message: 'Simpson criado com sucesso!' });
-
-  next();
 }
 
-module.exports = {
-  createSimpson,
-}
+module.exports = createSimpson;

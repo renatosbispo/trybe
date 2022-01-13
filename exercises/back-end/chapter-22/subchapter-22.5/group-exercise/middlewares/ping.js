@@ -1,9 +1,5 @@
-function pingMiddleware(_, res, next) {
-  res.status(200).json({ message: 'pong' });
-
-  next();
+function pingMiddleware(_, res) {
+  res.status(200).send('pong!');
 }
 
-module.exports = {
-  pingMiddleware,
-}
+module.exports = pingMiddleware;
