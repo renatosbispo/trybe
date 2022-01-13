@@ -69,7 +69,7 @@ Esse middleware deve ser chamado pela rota `POST /simpsons`.
 
 ----
 
-**Challenge solution by:**
+**Exercise solution by:**
 
 - [Cezar Montenegro](https://github.com/CezarMontenegro)
 - [Renato Bispo](https://github.com/renatosbispo)
