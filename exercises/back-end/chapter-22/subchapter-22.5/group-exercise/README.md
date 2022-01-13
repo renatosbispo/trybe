@@ -66,3 +66,11 @@ Esse middleware deve ser chamado pela rota `POST /simpsons`.
 * Se o valor de `name` for igual a vazio ou nulo deve retornar o json `{ message: 'Nome é obrigatório'}` e status 500.
 * Caso `name` seja válido deve chamar a função `next` do middleware.
 * Esse middleware deve ser chamado pela rota `POST /simpsons` **antes** do middleware construído no requisito 6 e **depois** do middleware construído no requisito 7.
+
+----
+
+**Challenge solution by:**
+
+- [Cezar Montenegro](https://github.com/CezarMontenegro)
+- [Renato Bispo](https://github.com/renatosbispo)
+- [Victor Veloso](https://github.com/vitovls)
