@@ -16,6 +16,12 @@ const posts = [
   },
 ];
 
+const all = {
+  retrieve(_, res) {
+    res.status(200).json({ posts });
+  },
+};
+
 const single = {
   exists(req, res, next) {
     const { id } = req.params;
@@ -36,5 +42,6 @@ const single = {
 };
 
 module.exports = {
+  all,
   single,
 };
