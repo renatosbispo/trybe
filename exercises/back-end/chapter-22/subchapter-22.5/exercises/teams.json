@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Barcelona",
+    "initials": "FCB",
+    "country": "Spain",
+    "league": "La Liga"
+  },
+  {
+    "name": "Real Madrid",
+    "initials": "MCF",
+    "country": "Spain",
+    "league": "La Liga"
+  }
+]
