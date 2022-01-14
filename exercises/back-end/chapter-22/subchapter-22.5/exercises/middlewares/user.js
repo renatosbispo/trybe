@@ -1,24 +1,31 @@
+const {
+  user: { generateToken, isValidEmail, isValidPassword, isValidUsername },
+} = require('../helpers');
+
+const login = {
+  validate(req, res, next) {
+    const { email, password } = req.body;
+
+    if (!isValidEmail(email) || !isValidPassword(password)) {
+      return res.status(400).json({ message: 'Incorrect email or password.' });
+    }
+
+    next();
+  },
+  complete(_, res) {
+    res.status(200).json({ token: generateToken() });
+  },
+};
+
 const signup = {
   validate(req, res, next) {
     const { username, email, password } = req.body;
 
-    const isValidUsername = () => {
-      return username.length > 3;
-    };
-
-    const isValidEmail = () => {
-      return /^\S+@\S+\.\S+$/.test(email);
-    };
-
-    const isValidPassword = () => {
-      return (
-        password.length > 3 &&
-        password.length < 9 &&
-        !Number.isNaN(Number(password))
-      );
-    };
-
-    if (!isValidUsername() || !isValidEmail() || !isValidPassword()) {
+    if (
+      !isValidUsername(username) ||
+      !isValidEmail(email) ||
+      !isValidPassword(password)
+    ) {
       return res.status(400).json({ message: 'Invalid data!' });
     }
 
@@ -32,5 +39,6 @@ const signup = {
 };
 
 module.exports = {
+  login,
   signup,
 };
