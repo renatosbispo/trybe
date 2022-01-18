@@ -5,3 +5,4 @@
 [submodule "projects/chapter-16-trivia"]
 	path = projects/chapter-16-trivia
 	url = https://github.com/tryber/sd-014-b-project-trivia-react-redux.git
+	branch = main-group-13-develop
