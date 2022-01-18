@@ -2,3 +2,6 @@
 	path = projects/chapter-15-trybewallet
 	url = https://github.com/tryber/sd-014-b-project-trybewallet.git
 	branch = renatosbispo-project-trybewallet
+[submodule "projects/chapter-16-trivia"]
+	path = projects/chapter-16-trivia
+	url = https://github.com/tryber/sd-014-b-project-trivia-react-redux.git
