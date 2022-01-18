@@ -1,0 +1,33 @@
+[submodule "projects/chapter-15-trybewallet"]
+	path = projects/chapter-15-trybewallet
+	url = https://github.com/tryber/sd-014-b-project-trybewallet.git
+	branch = renatosbispo-project-trybewallet
+[submodule "projects/chapter-16-trivia"]
+	path = projects/chapter-16-trivia
+	url = https://github.com/tryber/sd-014-b-project-trivia-react-redux.git
+	branch = main-group-13-develop
+[submodule "projects/chapter-17-star-wars-planets-search"]
+	path = projects/chapter-17-star-wars-planets-search
+	url = https://github.com/tryber/sd-014-b-project-starwars-planets-search.git
+	branch = renatosbispo-project-starwars-planets-search
+[submodule "projects/chapter-18-recipes-app"]
+	path = projects/chapter-18-recipes-app
+	url = https://github.com/tryber/sd-014-b-project-recipes-app.git
+	branch = group-19-renatosbispo-receitas-favoritas
+[submodule "projects/chapter-19-docker-todo-list"]
+	path = projects/chapter-19-docker-todo-list
+	url = https://github.com/tryber/sd-014-b-project-docker-todo-list.git
+	branch = renatosbispo-sd-014-b-project-docker-todo-list
+[submodule "projects/chapter-20-mysql-all-for-one"]
+	path = projects/chapter-20-mysql-all-for-one
+	url = https://github.com/tryber/sd-014-b-mysql-all-for-one.git
+	branch = renatosbispo-sd-014-b-mysql-all-for-one
+[submodule "projects/chapter-21-mysql-one-for-all"]
+	path = projects/chapter-21-mysql-one-for-all
+	url = https://github.com/tryber/sd-014-b-mysql-one-for-all.git
+	branch = renatosbispo-mysql-one-for-all
+
+[submodule "projects/chapter-22-talker-manager"]
+	path = projects/chapter-22-talker-manager
+	url = https://github.com/tryber/sd-014-b-project-talker-manager.git
+	branch = renatosbispo-talker-manager
