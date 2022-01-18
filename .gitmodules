@@ -26,4 +26,8 @@
 	path = projects/chapter-21-mysql-one-for-all
 	url = https://github.com/tryber/sd-014-b-mysql-one-for-all.git
 	branch = renatosbispo-mysql-one-for-all
-	
+
+[submodule "projects/chapter-22-talker-manager"]
+	path = projects/chapter-22-talker-manager
+	url = https://github.com/tryber/sd-014-b-project-talker-manager.git
+	branch = renatosbispo-talker-manager
