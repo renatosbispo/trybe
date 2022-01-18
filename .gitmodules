@@ -22,3 +22,8 @@
 	path = projects/chapter-20-mysql-all-for-one
 	url = https://github.com/tryber/sd-014-b-mysql-all-for-one.git
 	branch = renatosbispo-sd-014-b-mysql-all-for-one
+[submodule "projects/chapter-21-mysql-one-for-all"]
+	path = projects/chapter-21-mysql-one-for-all
+	url = https://github.com/tryber/sd-014-b-mysql-one-for-all.git
+	branch = renatosbispo-mysql-one-for-all
+	
