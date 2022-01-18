@@ -18,3 +18,7 @@
 	path = projects/chapter-19-docker-todo-list
 	url = https://github.com/tryber/sd-014-b-project-docker-todo-list.git
 	branch = renatosbispo-sd-014-b-project-docker-todo-list
+[submodule "projects/chapter-20-mysql-all-for-one"]
+	path = projects/chapter-20-mysql-all-for-one
+	url = https://github.com/tryber/sd-014-b-mysql-all-for-one.git
+	branch = renatosbispo-sd-014-b-mysql-all-for-one
