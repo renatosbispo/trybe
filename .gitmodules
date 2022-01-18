@@ -14,3 +14,7 @@
 	path = projects/chapter-18-recipes-app
 	url = https://github.com/tryber/sd-014-b-project-recipes-app.git
 	branch = group-19-renatosbispo-receitas-favoritas
+[submodule "projects/chapter-19-docker-todo-list"]
+	path = projects/chapter-19-docker-todo-list
+	url = https://github.com/tryber/sd-014-b-project-docker-todo-list.git
+	branch = renatosbispo-sd-014-b-project-docker-todo-list
