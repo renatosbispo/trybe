@@ -1,5 +1,4 @@
 [submodule "projects/chapter-15-trybewallet"]
 	path = projects/chapter-15-trybewallet
 	url = https://github.com/tryber/sd-014-b-project-trybewallet.git
-[submodule "chapter-15-trybewallet"]
 	branch = renatosbispo-project-trybewallet
