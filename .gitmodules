@@ -10,3 +10,7 @@
 	path = projects/chapter-17-star-wars-planets-search
 	url = https://github.com/tryber/sd-014-b-project-starwars-planets-search.git
 	branch = renatosbispo-project-starwars-planets-search
+[submodule "projects/chapter-18-recipes-app"]
+	path = projects/chapter-18-recipes-app
+	url = https://github.com/tryber/sd-014-b-project-recipes-app.git
+	branch = group-19-renatosbispo-receitas-favoritas
