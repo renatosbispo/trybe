@@ -6,3 +6,7 @@
 	path = projects/chapter-16-trivia
 	url = https://github.com/tryber/sd-014-b-project-trivia-react-redux.git
 	branch = main-group-13-develop
+[submodule "projects/chapter-17-star-wars-planets-search"]
+	path = projects/chapter-17-star-wars-planets-search
+	url = https://github.com/tryber/sd-014-b-project-starwars-planets-search.git
+	branch = renatosbispo-project-starwars-planets-search
