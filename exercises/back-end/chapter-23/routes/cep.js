@@ -1,7 +1,10 @@
 const router = require('express').Router();
-const { getCepData } = require('../controllers/cep');
+const { addCepData , getCepData } = require('../controllers/cep');
+const { formatCep, validateCep, validateCepData } = require('../middlewares/cep');
 
-router.get('/:cep', getCepData);
+router
+  .post('/', validateCepData, addCepData)
+  .get('/:cep', validateCep, formatCep, getCepData);
 
 module.exports = {
   path: '/cep',
