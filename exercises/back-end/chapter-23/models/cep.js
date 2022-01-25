@@ -25,7 +25,6 @@ async function getCepData(cep) {
   return cepData;
 }
 
-
 module.exports = {
   addCepData,
   getCepData,
