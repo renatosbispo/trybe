@@ -25,10 +25,12 @@ module.exports = {
       pageQuantity: {
         allowNull: true,
         type: Sequelize.INTEGER,
+        field: 'page_quantity',
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        field: 'created_at',
       }
     });
   },
