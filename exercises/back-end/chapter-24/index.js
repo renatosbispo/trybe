@@ -64,6 +64,21 @@ app
     } catch (error) {
       next(error);
     }
+  })
+  .delete('/books/:id', async (req, res, next) => {
+    try {
+      const targetId = req.params.id;
+
+      await book.destroy({
+        where: {
+          id: targetId,
+        },
+      });
+
+      res.status(204).end();
+    } catch (error) {
+      next(error);
+    }
   });
 
 app.use(handleError);
