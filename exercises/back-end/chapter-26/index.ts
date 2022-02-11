@@ -1,6 +1,8 @@
 import convertLength = require('./length');
 import convertMass = require('./mass');
 import convertCapacity = require('./capacity');
+import convertVolume = require('./volume');
+import convertArea = require('./area');
 
 type UnitConverterParams = [
   value: number,
@@ -35,3 +37,7 @@ printSeparator();
 testUnitConverter(convertMass, 50, 'kg', 'hg');
 printSeparator();
 testUnitConverter(convertCapacity, 4.2, 'ml', 'dal');
+printSeparator();
+testUnitConverter(convertVolume, 16, 'dam3', 'mm3');
+printSeparator();
+testUnitConverter(convertArea, 100, 'cm2', 'km2');
