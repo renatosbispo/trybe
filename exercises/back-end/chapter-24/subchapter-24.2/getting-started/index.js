@@ -16,6 +16,19 @@ app.get('/employees', async (_req, res) => {
   };
 });
 
+app.get('/addresses', async (_req, res) => {
+  try {
+    const addresses = await Address.findAll({
+      include: { model: Employee, as: 'employees' },
+    });
+
+    return res.status(200).json(addresses);
+  } catch (e) {
+    console.log(e.message);
+    res.status(500).json({ message: 'Ocorreu um erro' });
+  };
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Ouvindo na porta ${PORT}`));
 
