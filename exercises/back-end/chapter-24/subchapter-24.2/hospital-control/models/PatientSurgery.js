@@ -5,6 +5,7 @@ module.exports = (sequelize, _) => {
     {
       timestamps: false,
       tableName: 'Patient_surgeries',
+      underscore: true,
     }
   );
 

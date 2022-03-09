@@ -12,15 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       timestamps: false,
-      tableName: 'Plan',
+      tableName: 'Plans',
       underscored: true,
     }
   );
 
   Plan.associate = (models) => {
-    Plan.belongsTo(models.Patient, {
+    Plan.hasMany(models.Patient, {
       foreignKey: 'plan_id',
-      as: 'plan',
+      as: 'patients',
     });
   };
 

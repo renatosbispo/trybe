@@ -1,13 +1,14 @@
-"use strict";
+'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const SurgeriesTable = queryInterface.createTable("Surgeries", {
-      surgery_id: {
+    const SurgeriesTable = queryInterface.createTable('Surgeries', {
+      surgeryId: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        field: 'surgery_id',
       },
       specialty: {
         allowNull: false,
@@ -22,5 +23,5 @@ module.exports = {
     return SurgeriesTable;
   },
 
-  down: async (queryInterface) => queryInterface.dropTable("Surgeries"),
+  down: async (queryInterface) => queryInterface.dropTable('Surgeries'),
 };
