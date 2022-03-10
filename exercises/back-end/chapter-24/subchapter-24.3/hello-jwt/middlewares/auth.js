@@ -9,10 +9,12 @@ module.exports = (req, res, next) => {
   }
 
   try {
-    const payload = jwt.verify(token, process.env.SECRET);
+    const { username, admin } = jwt.verify(token, process.env.SECRET);
 
-    res.status(200).json(payload);
+    req.userInfo = { username, admin };
+
+    next();
   } catch (error) {
-    next(error);
+    res.status(401).json({ error: { message: error.message } });
   }
 };

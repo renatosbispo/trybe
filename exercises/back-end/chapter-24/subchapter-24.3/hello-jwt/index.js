@@ -27,8 +27,10 @@ app.post(
   '/login',
   middlewares.validatePassword,
   middlewares.validateUsername,
-  controllers.login
+  controllers.login,
 );
+
+app.use('/users', controllers.users);
 
 app.use(middlewares.error);
 
