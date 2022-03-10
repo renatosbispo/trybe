@@ -15,13 +15,20 @@ app.use(
     origin: `http://localhost:${PORT}`,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Authorization'],
-  }),
+  })
 );
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/ping', controllers.ping);
+
+app.post(
+  '/login',
+  middlewares.validatePassword,
+  middlewares.validateUsername,
+  controllers.login,
+);
 
 app.use(middlewares.error);
 
