@@ -15,7 +15,7 @@ app.use(
     origin: `http://localhost:${PORT}`,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Authorization'],
-  })
+  }),
 );
 
 app.use(bodyParser.json());
@@ -27,7 +27,7 @@ app.post(
   '/login',
   middlewares.validatePassword,
   middlewares.validateUsername,
-  controllers.login,
+  controllers.login
 );
 
 app.use(middlewares.error);

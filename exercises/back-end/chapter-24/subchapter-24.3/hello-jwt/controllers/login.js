@@ -3,7 +3,9 @@ const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
   try {
-    const { username } = req.body;
+    const { username, password } = req.body;
+
+    const isAdmin = username === 'admin' && password === 's3nh4S3gur4???';
 
     const jwtConfig = {
       expiresIn: '1h',
@@ -11,7 +13,7 @@ module.exports = (req, res, next) => {
     };
 
     const token = jwt.sign(
-      { username, admin: false },
+      { username, admin: isAdmin },
       process.env.SECRET,
       jwtConfig,
     );
