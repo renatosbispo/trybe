@@ -32,6 +32,8 @@ app.post(
 
 app.use('/users', controllers.users);
 
+app.get('/top-secret', middlewares.admin, controllers.topSecret);
+
 app.use(middlewares.error);
 
 app.listen(PORT, () => {
