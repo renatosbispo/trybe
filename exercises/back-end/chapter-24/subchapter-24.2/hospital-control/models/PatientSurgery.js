@@ -5,7 +5,7 @@ module.exports = (sequelize, _) => {
     {
       timestamps: false,
       tableName: 'Patient_surgeries',
-      underscore: true,
+      underscored: true,
     }
   );
 
@@ -13,15 +13,15 @@ module.exports = (sequelize, _) => {
     models.Patient.belongsToMany(models.Surgery, {
       as: 'surgeries',
       through: PatientSurgery,
-      foreignKey: 'patient_id',
-      otherKey: 'surgery_id',
+      foreignKey: 'patientId',
+      otherKey: 'surgeryId',
     });
 
     models.Surgery.belongsToMany(models.Patient, {
       as: 'patients',
       through: PatientSurgery,
-      foreignKey: 'surgery_id',
-      otherKey: 'patient_id',
+      foreignKey: 'surgeryId',
+      otherKey: 'patientId',
     });
   };
 
