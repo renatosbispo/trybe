@@ -8,10 +8,6 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
       },
       fullname: DataTypes.STRING,
-      planId: {
-        type: DataTypes.INTEGER,
-        foreignKey: true,
-      },
     },
     {
       timestamps: false,
@@ -22,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Patient.associate = (models) => {
     Patient.belongsTo(models.Plan, {
-      foreignKey: 'plan_id',
+      foreignKey: 'planId',
       as: 'plan',
     });
   };
