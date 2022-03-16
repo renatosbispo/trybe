@@ -34,3 +34,6 @@
 [submodule "exercises/back-end/chapter-25/subchapter-25.1/my-first-heroku-deploy"]
 	path = exercises/back-end/chapter-25/subchapter-25.1/my-first-heroku-deploy
 	url = https://github.com/renatosbispo/my-first-heroku-deploy
+[submodule "exercises/back-end/chapter-25/subchapter-25.1/first-express-api-deploy"]
+	path = exercises/back-end/chapter-25/subchapter-25.1/first-express-api-deploy
+	url = https://github.com/renatosbispo/first-express-api-deploy.git
