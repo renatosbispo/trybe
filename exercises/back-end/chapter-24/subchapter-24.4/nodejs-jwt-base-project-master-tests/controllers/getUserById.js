@@ -3,7 +3,7 @@ module.exports = async (req, res) => {
     const { id: tokenUserId } = req.user;
     const { id: paramsUserId } = req.params;
 
-    if (tokenUserId !== paramsUserId) {
+    if (tokenUserId !== parseInt(paramsUserId)) {
       throw new Error('Acesso negado');
     }
   } catch (error) {
