@@ -1,5 +1,6 @@
-exercises/repositories
-projects/wip
+exercises/repositories/
+projects/wip/
+.vscode/
 
 # Logs
 logs
