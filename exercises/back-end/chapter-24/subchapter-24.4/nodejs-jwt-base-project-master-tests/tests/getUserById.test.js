@@ -79,5 +79,34 @@ describe('/api/users/:userId', () => {
         expect(response.body.message).to.be.equal('Acesso negado');
       });
     });
+
+    describe('If the user is authenticated and requesting its own information', () => {
+      before(async () => {
+        const { id, ...authorizedUserLoginInfo } = usersMock[0];
+
+        const correctToken = await chai
+          .request(server)
+          .post('/api/login')
+          .send(authorizedUserLoginInfo)
+          .then(({ body: { token } }) => token);
+
+        response = await chai
+          .request(server)
+          .get('/api/users/1')
+          .set('Authorization', correctToken);
+      });
+
+      it('The response status code must be 200', () => {
+        expect(response).to.have.status(200);
+      });
+
+      it('The response body must be an object', () => {
+        expect(response.body).to.be.an('object');
+      });
+
+      it('The response body must contain the authenticated user info', () => {
+        expect(response.body).to.be.deep.equal(usersMock[0]);
+      });
+    });
   });
 });
