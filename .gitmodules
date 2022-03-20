@@ -40,3 +40,6 @@
 [submodule "exercises/back-end/chapter-25/subchapter-25.1/cra-heroku-deploy-exercise"]
 	path = exercises/back-end/chapter-25/subchapter-25.1/cra-heroku-deploy-exercise
 	url = https://github.com/renatosbispo/cra-heroku-deploy-exercise.git
+[submodule "exercises/back-end/chapter-25/subchapter-25.2/ci-cd-heroku-deploy"]
+	path = exercises/back-end/chapter-25/subchapter-25.2/ci-cd-heroku-deploy
+	url = https://github.com/renatosbispo/ci-cd-heroku-deploy.git
