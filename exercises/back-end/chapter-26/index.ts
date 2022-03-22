@@ -3,7 +3,6 @@ import capacity = require('./capacity');
 import length = require('./length');
 import mass = require('./mass');
 import volume = require('./volume');
-import mmorpg = require('./exercise-6');
 import readlineSync from 'readline-sync';
 
 interface UnitConverter {
@@ -52,35 +51,55 @@ function execConversion(
   console.log(`${value}${baseUnit} = ${convertedValue}${targetUnit}`);
 }
 
-const converterOptions: string[] = Object.keys(unitConverters);
+(() => {
+  const converterOptions: string[] = Object.keys(unitConverters);
 
-const selectedConverterIndex: number = readlineSync.keyInSelect(
-  converterOptions,
-  'Choose the converter: '
-);
+  const selectedConverterIndex: number = readlineSync.keyInSelect(
+    converterOptions,
+    'Choose the converter: '
+  );
 
-const selectedConverter = converterOptions[selectedConverterIndex];
-const selectedConverterUnits = unitConverters[selectedConverter].units;
+  if (selectedConverterIndex === -1) {
+    console.log('Exiting...');
 
-const value = readlineSync.questionFloat('Enter value: ');
+    return;
+  }
 
-const selectedBaseUnitIndex = readlineSync.keyInSelect(
-  selectedConverterUnits,
-  "What's the base unit?"
-);
+  const selectedConverter = converterOptions[selectedConverterIndex];
+  const selectedConverterUnits = unitConverters[selectedConverter].units;
 
-const selectedBaseUnit = selectedConverterUnits[selectedBaseUnitIndex];
+  const value = readlineSync.questionFloat('Enter value: ');
 
-const selectedTargetUnitIndex = readlineSync.keyInSelect(
-  selectedConverterUnits,
-  "What's the target unit?"
-);
+  const selectedBaseUnitIndex = readlineSync.keyInSelect(
+    selectedConverterUnits,
+    "What's the base unit?"
+  );
 
-const selectedTargetUnit = selectedConverterUnits[selectedTargetUnitIndex];
+  if (selectedConverterIndex === -1) {
+    console.log('Exiting...');
 
-execConversion(
-  selectedConverter,
-  value,
-  selectedBaseUnit,
-  selectedTargetUnit
-);
+    return;
+  }
+
+  const selectedBaseUnit = selectedConverterUnits[selectedBaseUnitIndex];
+
+  const selectedTargetUnitIndex = readlineSync.keyInSelect(
+    selectedConverterUnits,
+    "What's the target unit?"
+  );
+
+  if (selectedConverterIndex === -1) {
+    console.log('Exiting...');
+
+    return;
+  }
+
+  const selectedTargetUnit = selectedConverterUnits[selectedTargetUnitIndex];
+
+  execConversion(
+    selectedConverter,
+    value,
+    selectedBaseUnit,
+    selectedTargetUnit
+  );
+})();
