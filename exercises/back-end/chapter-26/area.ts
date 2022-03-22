@@ -3,13 +3,13 @@ interface Units {
 }
 
 const units: Units = {
-  km2: 10e3,
-  hm2: 10e2,
-  dam2: 10e1,
-  m2: 10,
-  dm2: 10e-1,
-  cm2: 10e-2,
-  mm2: 10e-3,
+  km2: 1e6,
+  hm2: 1e4,
+  dam2: 1e2,
+  m2: 1,
+  dm2: 1e-2,
+  cm2: 1e-4,
+  mm2: 1e-6,
 };
 
 function convert(value: number, baseUnit: string, targetUnit: string): number {

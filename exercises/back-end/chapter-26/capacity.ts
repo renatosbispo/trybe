@@ -3,13 +3,13 @@ interface Units {
 }
 
 const units: Units = {
-  kl: 10e3,
-  hl: 10e2,
-  dal: 10e1,
-  l: 10,
-  dl: 10e-1,
-  cl: 10e-2,
-  ml: 10e-3,
+  kl: 1e3,
+  hl: 1e2,
+  dal: 1e1,
+  l: 1,
+  dl: 1e-1,
+  cl: 1e-2,
+  ml: 1e-3,
 };
 
 function convert(value: number, baseUnit: string, targetUnit: string): number {
