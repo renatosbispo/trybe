@@ -1,50 +1,86 @@
-import convertLength = require('./length');
-import convertMass = require('./mass');
-import convertCapacity = require('./capacity');
-import convertVolume = require('./volume');
-import convertArea = require('./area');
+import area = require('./area');
+import capacity = require('./capacity');
+import length = require('./length');
+import mass = require('./mass');
+import volume = require('./volume');
 import mmorpg = require('./exercise-6');
+import readlineSync from 'readline-sync';
 
-type UnitConverterParams = [
+interface UnitConverter {
+  convert: Function;
+  units: string[];
+}
+interface UnitConverters {
+  [key: string]: UnitConverter;
+}
+
+const unitConverters: UnitConverters = {
+  area: {
+    convert: area.convert,
+    units: Object.keys(area.units),
+  },
+  capacity: {
+    convert: capacity.convert,
+    units: Object.keys(capacity.units),
+  },
+  length: {
+    convert: length.convert,
+    units: Object.keys(length.units),
+  },
+  mass: {
+    convert: mass.convert,
+    units: Object.keys(mass.units),
+  },
+  volume: {
+    convert: volume.convert,
+    units: Object.keys(volume.units),
+  },
+};
+
+function execConversion(
+  selectedOption: string,
   value: number,
   baseUnit: string,
   targetUnit: string
-];
-
-interface UnitConverter {
-  (...params: UnitConverterParams): number;
-}
-
-function testUnitConverter(
-  unitConverter: UnitConverter,
-  ...unitConverterParams: UnitConverterParams
-): void {
-  const convertedValue: number = unitConverter(...unitConverterParams);
-  const [value, baseUnit, targetUnit]: UnitConverterParams =
-    unitConverterParams;
-
-  console.log(
-    `${unitConverter.name}:`,
-    `${value}${baseUnit} = ${convertedValue}${targetUnit}`
+) {
+  let convertedValue: number = unitConverters[selectedOption].convert(
+    value,
+    baseUnit,
+    targetUnit
   );
+
+  console.log(`${value}${baseUnit} = ${convertedValue}${targetUnit}`);
 }
 
-function printSeparator() {
-  console.log('-----------');
-}
+const converterOptions: string[] = Object.keys(unitConverters);
 
-testUnitConverter(convertLength, 25, 'dam', 'm');
-printSeparator();
-testUnitConverter(convertMass, 50, 'kg', 'hg');
-printSeparator();
-testUnitConverter(convertCapacity, 4.2, 'ml', 'dal');
-printSeparator();
-testUnitConverter(convertVolume, 16, 'dam3', 'mm3');
-printSeparator();
-testUnitConverter(convertArea, 100, 'cm2', 'km2');
+const selectedConverterIndex: number = readlineSync.keyInSelect(
+  converterOptions,
+  'Choose the converter: '
+);
 
-printSeparator();
+const selectedConverter = converterOptions[selectedConverterIndex];
+const selectedConverterUnits = unitConverters[selectedConverter].units;
 
-const { characters, printCharacter } = mmorpg;
+const value = readlineSync.questionFloat('Enter value: ');
 
-characters.forEach(printCharacter);
+const selectedBaseUnitIndex = readlineSync.keyInSelect(
+  selectedConverterUnits,
+  "What's the base unit?"
+);
+
+const selectedBaseUnit = selectedConverterUnits[selectedBaseUnitIndex];
+
+const selectedTargetUnitIndex = readlineSync.keyInSelect(
+  selectedConverterUnits,
+  "What's the target unit?"
+);
+
+const selectedTargetUnit = selectedConverterUnits[selectedTargetUnitIndex];
+
+execConversion(
+  selectedConverter,
+  value,
+  selectedBaseUnit,
+  selectedTargetUnit
+);
