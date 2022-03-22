@@ -3,6 +3,7 @@ import convertMass = require('./mass');
 import convertCapacity = require('./capacity');
 import convertVolume = require('./volume');
 import convertArea = require('./area');
+import mmorpg = require('./exercise-6');
 
 type UnitConverterParams = [
   value: number,
@@ -41,3 +42,9 @@ printSeparator();
 testUnitConverter(convertVolume, 16, 'dam3', 'mm3');
 printSeparator();
 testUnitConverter(convertArea, 100, 'cm2', 'km2');
+
+printSeparator();
+
+const { characters, printCharacter } = mmorpg;
+
+characters.forEach(printCharacter);
