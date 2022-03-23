@@ -1,18 +1,22 @@
-enum CarColor {
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export enum CarColor {
   Black = 'Black',
   Red = 'Red',
   White = 'White',
   Silver = 'Silver',
 }
 
-enum CarDoor {
+export enum CarDoor {
   FrontLeft = 'FrontLeft',
   FrontRight = 'FrontRight',
   RearLeft = 'RearLeft',
   RearRight = 'RearRight',
 }
 
-enum TurnDirection {
+export enum TurnDirection {
   Left = 'Left',
   Right = 'Right',
 }
@@ -33,6 +37,8 @@ export class Car implements ICar {
   #brand: string;
   #color: CarColor;
   #doors: number;
+  #actionTime: number = 250;
+  #logAction = (message: string): void => console.log(`\n${message}`);
 
   constructor(brand: string, color: CarColor, doors: number) {
     this.#brand = brand;
@@ -41,38 +47,66 @@ export class Car implements ICar {
   }
 
   honk(): void {
-    console.log('Honk!');
+    this.#logAction('Honk!');
   }
 
-  openTheDoor(door: CarDoor): void {
-    console.log(`Opening ${door} door...`);
+  async openTheDoor(door: CarDoor): Promise<void> {
+    this.#logAction(`Opening ${door} door...`);
+
+    await sleep(this.#actionTime);
+
+    this.#logAction(`${door} door opened.`);
   }
 
-  closeTheDoor(door: CarDoor): void {
-    console.log(`Closing ${door} door...`);
+  async closeTheDoor(door: CarDoor): Promise<void> {
+    this.#logAction(`Closing ${door} door...`);
+
+    await sleep(this.#actionTime);
+
+    this.#logAction(`${door} door closed.`);
   }
 
-  turnOn(): void {
-    console.log('Turning car on...');
+  async turnOn(): Promise<void> {
+    this.#logAction('Turning car on...');
+
+    await sleep(this.#actionTime);
+
+    this.#logAction('Car is on.');
   }
 
-  turnOff(): void {
-    console.log('Turning car off...');
+  async turnOff(): Promise<void> {
+    this.#logAction('Turning car off...');
+
+    await sleep(this.#actionTime);
+
+    this.#logAction('Car is off.');
   }
 
-  speedUp(): void {
-    console.log('Speeding car up...');
+  async speedUp(): Promise<void> {
+    this.#logAction('Speeding car up...');
+
+    await sleep(this.#actionTime);
   }
 
-  speedDown(): void {
-    console.log('Speeding car down...');
+  async speedDown(): Promise<void> {
+    this.#logAction('Speeding car down...');
+
+    await sleep(this.#actionTime);
   }
 
-  stop(): void {
-    console.log('Stoping car...');
+  async stop(): Promise<void> {
+    this.#logAction('Stoping car...');
+
+    await sleep(this.#actionTime);
+
+    this.#logAction('Car stopped.');
   }
 
-  turn(direction: TurnDirection): void {
-    console.log(`Turning car to the ${direction}`);
+  async turn(direction: TurnDirection): Promise<void> {
+    this.#logAction(`Turning car to the ${direction}`);
+
+    await sleep(this.#actionTime);
+
+    this.#logAction('Car is done turning.');
   }
 }
