@@ -21,6 +21,11 @@ export enum TurnDirection {
   Right = 'Right',
 }
 
+export enum DistanceUnit {
+  km = 'km',
+  m = 'm',
+}
+
 interface ICar {
   honk(): void;
   openTheDoor(door: CarDoor): void;
@@ -37,7 +42,8 @@ export class Car implements ICar {
   #brand: string;
   #color: CarColor;
   #doors: number;
-  #actionTime: number = 250;
+  #actionTime: number = 2000;
+  #delayBeforeNextAction: number = 1500;
   #logAction = (message: string): void => console.log(`\n${message}`);
 
   constructor(brand: string, color: CarColor, doors: number) {
@@ -55,7 +61,9 @@ export class Car implements ICar {
 
     await sleep(this.#actionTime);
 
-    this.#logAction(`${door} door opened.`);
+    console.log(`${door} door opened.`);
+
+    await sleep(this.#delayBeforeNextAction);
   }
 
   async closeTheDoor(door: CarDoor): Promise<void> {
@@ -63,7 +71,9 @@ export class Car implements ICar {
 
     await sleep(this.#actionTime);
 
-    this.#logAction(`${door} door closed.`);
+    console.log(`${door} door closed.`);
+
+    await sleep(this.#delayBeforeNextAction);
   }
 
   async turnOn(): Promise<void> {
@@ -71,7 +81,9 @@ export class Car implements ICar {
 
     await sleep(this.#actionTime);
 
-    this.#logAction('Car is on.');
+    console.log('Car is on.');
+
+    await sleep(this.#delayBeforeNextAction);
   }
 
   async turnOff(): Promise<void> {
@@ -79,7 +91,9 @@ export class Car implements ICar {
 
     await sleep(this.#actionTime);
 
-    this.#logAction('Car is off.');
+    console.log('Car is off.');
+
+    await sleep(this.#delayBeforeNextAction);
   }
 
   async speedUp(): Promise<void> {
@@ -99,14 +113,32 @@ export class Car implements ICar {
 
     await sleep(this.#actionTime);
 
-    this.#logAction('Car stopped.');
+    console.log('Car stopped.');
+
+    await sleep(this.#delayBeforeNextAction);
   }
 
   async turn(direction: TurnDirection): Promise<void> {
-    this.#logAction(`Turning car to the ${direction}`);
+    this.#logAction(`Turning car to the ${direction}...`);
 
     await sleep(this.#actionTime);
 
-    this.#logAction('Car is done turning.');
+    console.log('Car is done turning.');
+
+    await sleep(this.#delayBeforeNextAction);
+  }
+
+  async goStraight(distance: number, unit: DistanceUnit) {
+    this.#logAction(`Going straight for ${distance}${unit}...`);
+
+    const travelTime: number =
+      this.#actionTime *
+      (1 + (unit === DistanceUnit.m ? distance / 1000 : distance));
+
+    await sleep(travelTime);
+
+    console.log(`Finished going straight for ${distance}${unit}.`);
+
+    await sleep(this.#delayBeforeNextAction);
   }
 }
