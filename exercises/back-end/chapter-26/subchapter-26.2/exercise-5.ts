@@ -1,4 +1,4 @@
-type FilterPredicate<U> = (item: U, index?: number, array?: U[]) => boolean;
+type FilterPredicate<U> = (item: U, index: number, array: U[]) => boolean;
 
 function myFilter<T>(array: T[], predicate: FilterPredicate<T>): T[] {
   const filteredArray = [];
@@ -30,6 +30,6 @@ const stringArrayToBeFiltered: string[] = [
 ];
 
 const stringFilterPredicate: FilterPredicate<string> = (item, index) =>
-  item.length < 7 && index! % 2 === 0;
+  item.length < 7 && index % 2 === 0;
 
 console.log(myFilter(stringArrayToBeFiltered, stringFilterPredicate));
