@@ -3,12 +3,9 @@ import { StatusCodes } from 'http-status-codes';
 import Book from '../interfaces/book.interface';
 
 const properties = [
-  'type',
-  'name',
+  'title',
   'price',
-  'image',
   'author',
-  'publishingCompany',
   'isbn',
 ];
 
