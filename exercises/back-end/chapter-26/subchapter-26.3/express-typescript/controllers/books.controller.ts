@@ -36,6 +36,15 @@ class BooksController {
     const { title, price, author, isbn } = params;
     return { title, price, author, isbn } as Book;
   }
+
+  public update = async (req: Request, res: Response) => {
+    const id = parseInt(req.params.id);
+    const book = this.buildBookByParams(req.body);
+    await this.bookService.update(id, book);
+
+    res.status(StatusCodes.NO_CONTENT).end();
+
+  }
 }
 
 export default BooksController;
