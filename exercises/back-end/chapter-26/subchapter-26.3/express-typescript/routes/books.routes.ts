@@ -9,6 +9,7 @@ const booksController = new BooksController();
 router
   .get('/books', booksController.getAll)
   .get('/books/:id', booksController.getById)
-  .post('/books', validationBook, booksController.create);
+  .post('/books', validationBook, booksController.create)
+  .put('/books/:id', validationBook, booksController.update);
 
 export default router;
