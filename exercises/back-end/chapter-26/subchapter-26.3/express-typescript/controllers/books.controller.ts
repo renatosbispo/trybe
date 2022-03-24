@@ -12,7 +12,7 @@ class BooksController {
     res.status(StatusCodes.OK).json(books);
   }
 
-  public async getById(req: Request, res: Response) {
+  public getById = async (req: Request, res: Response) => {
     const id = parseInt(req.params.id);
     const book = await this.bookService.getById(id);
 
