@@ -32,11 +32,6 @@ class BooksController {
     res.status(StatusCodes.CREATED).json(bookCreated);
   }
 
-  private buildBookByParams(params: any): Book {
-    const { title, price, author, isbn } = params;
-    return { title, price, author, isbn } as Book;
-  }
-
   public update = async (req: Request, res: Response) => {
     const id = parseInt(req.params.id);
     const book = this.buildBookByParams(req.body);
@@ -44,6 +39,19 @@ class BooksController {
 
     res.status(StatusCodes.NO_CONTENT).end();
 
+  }
+
+  public remove = async (req: Request, res: Response) => {
+    const id = parseInt(req.params.id);
+    await this.bookService.remove(id);
+
+    res.status(StatusCodes.NO_CONTENT).end();
+
+  }
+
+  private buildBookByParams(params: any): Book {
+    const { title, price, author, isbn } = params;
+    return { title, price, author, isbn } as Book;
   }
 }
 
