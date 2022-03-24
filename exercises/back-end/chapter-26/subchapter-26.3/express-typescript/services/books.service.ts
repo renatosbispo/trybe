@@ -23,20 +23,20 @@ class BookService {
     return this.model.create(book);
   }
 
-  public update(id: number, book: Book): Promise<any> {
-    this.checkBookExists(id);
+  public async update(id: number, book: Book): Promise<any> {
+    await this.checkBookExists(id);
 
     return this.model.update(id, book);
   }
 
-  public remove(id: number): Promise<any> {
-    this.checkBookExists(id);
+  public async remove(id: number): Promise<any> {
+    await this.checkBookExists(id);
 
     return this.model.remove(id);
   }
 
-  private checkBookExists(id: number) {
-    if (!this.model.getById(id)) {
+  private async checkBookExists(id: number) {
+    if (!(await this.model.getById(id))) {
       throw new Error('Book doesn`t exists!');
     }
   }
