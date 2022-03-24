@@ -29,6 +29,12 @@ class BookService {
     return this.model.update(id, book);
   }
 
+  public remove(id: number): Promise<any> {
+    this.checkBookExists(id);
+
+    return this.model.remove(id);
+  }
+
   private checkBookExists(id: number) {
     if (!this.model.getById(id)) {
       throw new Error('Book doesn`t exists!');
