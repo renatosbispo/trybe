@@ -22,6 +22,18 @@ class BookService {
   public create(book: Book): Promise<Book> {
     return this.model.create(book);
   }
+
+  public update(id: number, book: Book): Promise<any> {
+    this.checkBookExists(id);
+
+    return this.model.update(id, book);
+  }
+
+  private checkBookExists(id: number) {
+    if (!this.model.getById(id)) {
+      throw new Error('Book doesn`t exists!');
+    }
+  }
 }
 
 export default BookService;
