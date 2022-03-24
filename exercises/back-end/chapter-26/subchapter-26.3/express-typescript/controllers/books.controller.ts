@@ -4,6 +4,7 @@ import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
 import BookService from '../services/books.service';
+import Book from '../interfaces/book.interface';
 
 class BooksController {
   bookService = new BookService();
@@ -22,6 +23,18 @@ class BooksController {
     }
 
     res.status(StatusCodes.OK).json(book);
+  }
+
+  public create = async (req: Request, res: Response) => {
+    const book = this.buildBookByParams(req.body);
+
+    const bookCreated = await this.bookService.create(book);
+    res.status(StatusCodes.CREATED).json(bookCreated);
+  }
+
+  private buildBookByParams(params: any): Book {
+    const { title, price, author, isbn } = params;
+    return { title, price, author, isbn } as Book;
   }
 }
 
