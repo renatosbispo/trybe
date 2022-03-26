@@ -31,4 +31,18 @@ export default class ProductController {
       next(error);
     }
   }
+
+  public async getAll(
+    req: Request<any, IProduct[]>,
+    res: Response<IProduct[]>,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const products = await this.service.getAll();
+
+      res.status(StatusCodes.OK).json(products);
+    } catch (error) {
+      next(error);
+    }
+  }
 }

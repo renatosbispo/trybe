@@ -5,7 +5,7 @@ import { ErrorCode } from '../lib/error-codes';
 import ErrorWithCode from '../lib/error-with-code';
 
 export default class ProductMiddlewares {
-  private getErrorCode(errorType): ErrorCode {
+  private getErrorCode(errorType: string): ErrorCode {
     const errorTypeEnding = errorType.split('.')[1];
 
     const errorCode =

@@ -4,7 +4,7 @@ import ErrorWithCode from '../lib/error-with-code';
 import { ProductModel } from '../models';
 import connection from '../models/connection';
 
-export default class ProductService implements IProductService {
+export default class ProductService {
   private model;
 
   constructor() {
@@ -49,5 +49,11 @@ export default class ProductService implements IProductService {
     });
 
     return newProduct;
+  }
+
+  public async getAll(): Promise<IProduct[]> {
+    const products = await this.model.getAll();
+
+    return products;
   }
 }
