@@ -60,4 +60,20 @@ export default class ProductController {
       next(error);
     }
   }
+
+  public async remove(
+    req: Request<{ id: string }>,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const { id } = req.params;
+
+      await this.service.remove(id);
+
+      res.status(StatusCodes.NO_CONTENT).end();
+    } catch (error) {
+      next(error);
+    }
+  }
 }

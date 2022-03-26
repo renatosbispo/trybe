@@ -27,6 +27,17 @@ export default class ProductService {
     }
   }
 
+  private async validateId(id: string): Promise<IProduct> {
+    const parsedId = parseInt(id);
+    const product = await this.model.getById(parsedId);
+
+    if (!product) {
+      throw new ErrorWithCode(ErrorCode.ENTITY_NOT_FOUND, 'Product not found.');
+    }
+
+    return product;
+  }
+
   private validatePrice(price: number): void {
     if (price < 0) {
       throw new ErrorWithCode(
@@ -58,13 +69,14 @@ export default class ProductService {
   }
 
   public async getById(id: string): Promise<IProduct> {
-    const parsedId = parseInt(id);
-    const product = await this.model.getById(parsedId);
-
-    if (!product) {
-      throw new ErrorWithCode(ErrorCode.ENTITY_NOT_FOUND, 'Product not found.');
-    }
+    const product = await this.validateId(id);
 
     return product;
+  }
+
+  public async remove(id: string): Promise<void> {
+    await this.validateId(id);
+
+    await this.model.remove(parseInt(id));
   }
 }

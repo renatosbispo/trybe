@@ -8,6 +8,10 @@ const productController = new ProductController();
 const productMiddlewares = new ProductMiddlewares();
 
 router
+  .delete(
+    '/:id',
+    async (req, res, next) => await productController.remove(req, res, next)
+  )
   .get(
     '/',
     async (req, res, next) => await productController.getAll(req, res, next)
