@@ -61,6 +61,22 @@ export default class ProductController {
     }
   }
 
+  public async getInPriceRange(
+    req: Request<any, IProduct[], any, { minPrice: string; maxPrice: string }>,
+    res: Response<IProduct[]>,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const { minPrice, maxPrice } = req.query;
+
+      const products = await this.service.getInPriceRange(minPrice, maxPrice);
+
+      res.status(StatusCodes.OK).json(products);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   public async remove(
     req: Request<{ id: string }>,
     res: Response,

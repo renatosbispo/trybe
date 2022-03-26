@@ -74,6 +74,22 @@ export default class ProductService {
     return product;
   }
 
+  public async getInPriceRange(
+    minPrice: string,
+    maxPrice: string
+  ): Promise<IProduct[]> {
+    if (!minPrice || !maxPrice) {
+      throw new ErrorWithCode(ErrorCode.QUERY_INVALID, 'Invalid query.');
+    }
+
+    const products = await this.model.getInPriceRange(
+      Number(minPrice),
+      Number(maxPrice)
+    );
+
+    return products;
+  }
+
   public async remove(id: string): Promise<void> {
     await this.validateId(id);
 

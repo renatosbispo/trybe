@@ -16,6 +16,7 @@ export default class ErrorMiddleware {
       [ErrorCode.ENTITY_PROPERTY_MISSING]: 400,
       [ErrorCode.ENTITY_PROPERTY_NOT_FOUND]: 400,
       [ErrorCode.ENTITY_PROPERTY_UNEXPECTED]: 400,
+      [ErrorCode.QUERY_INVALID]: 400,
       [ErrorCode.TOKEN_EXPIRED_OR_INVALID]: 401,
       [ErrorCode.TOKEN_NOT_FOUND]: 401,
       [ErrorCode.UNAUTHORIZED_OPERATION]: 401,

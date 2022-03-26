@@ -1,5 +1,6 @@
-import { Router } from 'express';
+import { Request, Router } from 'express';
 import { ProductController } from '../controllers';
+import { IProduct } from '../interfaces';
 import { ProductMiddlewares } from '../middlewares';
 
 const router = Router();
@@ -15,6 +16,19 @@ router
   .get(
     '/',
     async (req, res, next) => await productController.getAll(req, res, next)
+  )
+  .get(
+    '/search',
+    async (
+      req: Request<
+        any,
+        IProduct[],
+        any,
+        { minPrice: string; maxPrice: string }
+      >,
+      res,
+      next
+    ) => await productController.getInPriceRange(req, res, next)
   )
   .get(
     '/:id',

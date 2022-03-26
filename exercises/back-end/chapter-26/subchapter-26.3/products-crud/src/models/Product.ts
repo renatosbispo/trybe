@@ -45,6 +45,18 @@ export default class ProductModel {
     return product as IProduct;
   }
 
+  public async getInPriceRange(
+    minPrice: number,
+    maxPrice: number
+  ): Promise<IProduct[]> {
+    const [products] = await this.connection.execute<RowDataPacket[]>(
+      'SELECT * FROM products_api.products WHERE price BETWEEN ? AND ?',
+      [minPrice, maxPrice]
+    );
+
+    return products as IProduct[];
+  }
+
   public async remove(id: number): Promise<void> {
     await this.connection.execute(
       'DELETE FROM products_api.products WHERE id = ?',
