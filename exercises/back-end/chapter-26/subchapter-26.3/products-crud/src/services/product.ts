@@ -11,7 +11,7 @@ export default class ProductService {
     this.model = new ProductModel(connection);
   }
 
-  private parseProductPrice(price: number | string): number {
+  private parseProductPrice(price: string): number {
     return Number(price);
   }
 
@@ -38,7 +38,7 @@ export default class ProductService {
 
   public async create(data: IProduct): Promise<IProduct> {
     const { price, productionDate, expirationDate } = data;
-    const parsedProductPrice = this.parseProductPrice(price);
+    const parsedProductPrice = this.parseProductPrice(price as string);
 
     this.validatePrice(parsedProductPrice);
     this.validateDates(productionDate, expirationDate);
