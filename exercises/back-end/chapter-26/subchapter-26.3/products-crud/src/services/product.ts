@@ -79,4 +79,12 @@ export default class ProductService {
 
     await this.model.remove(parseInt(id));
   }
+
+  public async update(id: string, data: IProduct): Promise<IProduct> {
+    await this.validateId(id);
+
+    const updatedProduct = await this.model.update(parseInt(id), data);
+
+    return updatedProduct;
+  }
 }

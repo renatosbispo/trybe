@@ -24,6 +24,11 @@ router
     '/',
     (req, res, next) => productMiddlewares.validateProperties(req, res, next),
     async (req, res, next) => await productController.create(req, res, next)
+  )
+  .put(
+    '/:id',
+    (req, res, next) => productMiddlewares.validateProperties(req, res, next),
+    async (req, res, next) => await productController.update(req, res, next)
   );
 
 export default router;

@@ -51,4 +51,22 @@ export default class ProductModel {
       [id]
     );
   }
+
+  public async update(id: number, data: IProduct): Promise<IProduct> {
+    const { name, brand, price, productionDate, expirationDate } = data;
+
+    await this.connection.execute(
+      'UPDATE products_api.products SET name = ?, brand = ?, price = ?, production_date = ?, expiration_date = ? WHERE id = ?',
+      [name, brand, price, productionDate, expirationDate, id]
+    );
+
+    return {
+      id,
+      name,
+      brand,
+      price,
+      productionDate,
+      expirationDate,
+    };
+  }
 }

@@ -65,13 +65,36 @@ export default class ProductController {
     req: Request<{ id: string }>,
     res: Response,
     next: NextFunction
-  ) {
+  ): Promise<void> {
     try {
       const { id } = req.params;
 
       await this.service.remove(id);
 
       res.status(StatusCodes.NO_CONTENT).end();
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  public async update(
+    req: Request<{ id: string }, IProduct, IProduct>,
+    res: Response<IProduct>,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const { id } = req.params;
+      const { name, brand, price, productionDate, expirationDate } = req.body;
+
+      const updatedProduct = await this.service.update(id, {
+        name,
+        brand,
+        price,
+        productionDate,
+        expirationDate,
+      });
+
+      res.status(StatusCodes.OK).json(updatedProduct);
     } catch (error) {
       next(error);
     }
