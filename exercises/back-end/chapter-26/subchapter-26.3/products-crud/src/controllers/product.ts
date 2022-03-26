@@ -45,4 +45,19 @@ export default class ProductController {
       next(error);
     }
   }
+
+  public async getById(
+    req: Request<{ id: string }, IProduct>,
+    res: Response<IProduct>,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const { id } = req.params;
+      const product = await this.service.getById(id);
+
+      res.status(StatusCodes.OK).json(product);
+    } catch (error) {
+      next(error);
+    }
+  }
 }

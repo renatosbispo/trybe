@@ -35,4 +35,13 @@ export default class ProductModel {
 
     return products as IProduct[];
   }
+
+  public async getById(id: number): Promise<IProduct> {
+    const [[product]] = await this.connection.execute<RowDataPacket[]>(
+      'SELECT * FROM products_api.products WHERE id = ?',
+      [id]
+    );
+
+    return product as IProduct;
+  }
 }

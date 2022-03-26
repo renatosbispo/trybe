@@ -56,4 +56,15 @@ export default class ProductService {
 
     return products;
   }
+
+  public async getById(id: string): Promise<IProduct> {
+    const parsedId = parseInt(id);
+    const product = await this.model.getById(parsedId);
+
+    if (!product) {
+      throw new ErrorWithCode(ErrorCode.ENTITY_NOT_FOUND, 'Product not found.');
+    }
+
+    return product;
+  }
 }

@@ -12,6 +12,10 @@ router
     '/',
     async (req, res, next) => await productController.getAll(req, res, next)
   )
+  .get(
+    '/:id',
+    async (req, res, next) => await productController.getById(req, res, next)
+  )
   .post(
     '/',
     (req, res, next) => productMiddlewares.validateProperties(req, res, next),
