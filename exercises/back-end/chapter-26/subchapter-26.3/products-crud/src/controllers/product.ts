@@ -33,7 +33,7 @@ export default class ProductController {
   }
 
   public async getAll(
-    req: Request<any, IProduct[]>,
+    _req: Request<any, IProduct[]>,
     res: Response<IProduct[]>,
     next: NextFunction
   ): Promise<void> {
@@ -70,6 +70,20 @@ export default class ProductController {
       const { minPrice, maxPrice } = req.query;
 
       const products = await this.service.getInPriceRange(minPrice, maxPrice);
+
+      res.status(StatusCodes.OK).json(products);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  public async getNotExpired(
+    _req: Request<any, IProduct[]>,
+    res: Response<IProduct[]>,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const products = await this.service.getNotExpired();
 
       res.status(StatusCodes.OK).json(products);
     } catch (error) {

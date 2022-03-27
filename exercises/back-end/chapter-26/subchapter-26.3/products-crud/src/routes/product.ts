@@ -18,6 +18,11 @@ router
     async (req, res, next) => await productController.getAll(req, res, next)
   )
   .get(
+    '/not-expired',
+    async (req, res, next) =>
+      await productController.getNotExpired(req, res, next)
+  )
+  .get(
     '/search',
     async (
       req: Request<

@@ -90,6 +90,12 @@ export default class ProductService {
     return products;
   }
 
+  public async getNotExpired(): Promise<IProduct[]> {
+    const products = await this.model.getNotExpired();
+
+    return products;
+  }
+
   public async remove(id: string): Promise<void> {
     await this.validateId(id);
 

@@ -57,6 +57,14 @@ export default class ProductModel {
     return products as IProduct[];
   }
 
+  public async getNotExpired(): Promise<IProduct[]>{
+    const [products] = await this.connection.execute<RowDataPacket[]>(
+      'SELECT * FROM products_api.products WHERE expiration_date >= NOW()'
+    );
+
+    return products as IProduct[];
+  }
+
   public async remove(id: number): Promise<void> {
     await this.connection.execute(
       'DELETE FROM products_api.products WHERE id = ?',
