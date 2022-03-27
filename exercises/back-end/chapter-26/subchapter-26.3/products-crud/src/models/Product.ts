@@ -1,7 +1,7 @@
 import { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import { IProduct, IProductModel } from '../interfaces';
 
-export default class ProductModel {
+export default class ProductModel implements IProductModel {
   private connection;
 
   constructor(connection: Pool) {
@@ -30,7 +30,7 @@ export default class ProductModel {
 
   public async getAll(): Promise<IProduct[]> {
     const [products] = await this.connection.execute<RowDataPacket[]>(
-      'SELECT * FROM products_api.products'
+      'SELECT name, brand, price, production_date as productionDate, expiration_date as expirationDate FROM products_api.products'
     );
 
     return products as IProduct[];
@@ -38,7 +38,7 @@ export default class ProductModel {
 
   public async getById(id: number): Promise<IProduct> {
     const [[product]] = await this.connection.execute<RowDataPacket[]>(
-      'SELECT * FROM products_api.products WHERE id = ?',
+      'SELECT name, brand, price, production_date as productionDate, expiration_date as expirationDate FROM products_api.products WHERE id = ?',
       [id]
     );
 
@@ -50,16 +50,16 @@ export default class ProductModel {
     maxPrice: number
   ): Promise<IProduct[]> {
     const [products] = await this.connection.execute<RowDataPacket[]>(
-      'SELECT * FROM products_api.products WHERE price BETWEEN ? AND ?',
+      'SELECT name, brand, price, production_date as productionDate, expiration_date as expirationDate FROM products_api.products WHERE price BETWEEN ? AND ?',
       [minPrice, maxPrice]
     );
 
     return products as IProduct[];
   }
 
-  public async getNotExpired(): Promise<IProduct[]>{
+  public async getNotExpired(): Promise<IProduct[]> {
     const [products] = await this.connection.execute<RowDataPacket[]>(
-      'SELECT * FROM products_api.products WHERE expiration_date >= NOW()'
+      'SELECT name, brand, price, production_date as productionDate, expiration_date as expirationDate FROM products_api.products WHERE expiration_date >= NOW()'
     );
 
     return products as IProduct[];

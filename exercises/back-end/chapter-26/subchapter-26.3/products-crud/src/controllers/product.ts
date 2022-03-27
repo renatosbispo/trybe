@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { IProduct } from '../interfaces';
+import { IProduct, IProductController } from '../interfaces';
 import { ProductService } from '../services';
 
-export default class ProductController {
+export default class ProductController implements IProductController {
   private service;
 
   constructor() {

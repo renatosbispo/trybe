@@ -4,7 +4,7 @@ import ErrorWithCode from '../lib/error-with-code';
 import { ProductModel } from '../models';
 import connection from '../models/connection';
 
-export default class ProductService {
+export default class ProductService implements IProductService {
   private model;
 
   constructor() {
@@ -22,7 +22,7 @@ export default class ProductService {
     if (parsedProductionDate >= parsedExpirationDate) {
       throw new ErrorWithCode(
         ErrorCode.ENTITY_PROPERTY_INVALID,
-        'Production date cannot be equal or greater than expiration date.'
+        'Production date cannot be equal to or greater than expiration date.'
       );
     }
   }
@@ -82,9 +82,16 @@ export default class ProductService {
       throw new ErrorWithCode(ErrorCode.QUERY_INVALID, 'Invalid query.');
     }
 
+    const parsedMinPrice = Number(minPrice);
+    const parsedMaxPrice = Number(maxPrice);
+
+    if (parsedMinPrice < 0 || parsedMaxPrice < 0) {
+      throw new ErrorWithCode(ErrorCode.QUERY_INVALID, 'Invalid query.');
+    }
+
     const products = await this.model.getInPriceRange(
-      Number(minPrice),
-      Number(maxPrice)
+      parsedMinPrice,
+      parsedMaxPrice
     );
 
     return products;
@@ -104,6 +111,11 @@ export default class ProductService {
 
   public async update(id: string, data: IProduct): Promise<IProduct> {
     await this.validateId(id);
+
+    const { price, productionDate, expirationDate } = data;
+    const parsedProductPrice = this.parseProductPrice(price as string);
+    this.validatePrice(parsedProductPrice);
+    this.validateDates(productionDate, expirationDate);
 
     const updatedProduct = await this.model.update(parseInt(id), data);
 
