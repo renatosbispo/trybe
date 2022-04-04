@@ -1,4 +1,5 @@
 import ExerciseHeader from './ExerciseHeader';
+import CustomDate from './CustomDate';
 import Customer from './restaurant/Customer';
 import Order from './restaurant/Order';
 import OrderItem from './restaurant/OrderItem';
@@ -28,3 +29,10 @@ const myOrder = new Order(customer.id, orderItems, PaymentOption.Cash, 0.25);
 
 console.log('Order:', myOrder);
 console.log('Order total with discount:', myOrder.getOrderTotalWithDiscount());
+
+// Exercises 5 - 6
+new ExerciseHeader('Exercises 5 - 6');
+
+const customDate = new CustomDate(19, 10, 1996);
+
+console.log(customDate);
