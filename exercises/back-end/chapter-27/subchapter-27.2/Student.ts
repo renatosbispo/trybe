@@ -7,12 +7,12 @@ export default class Student extends Person {
   protected maxProjectsGradesLength: number = 2;
 
   constructor(
-    public name: string,
-    public birthDate: Date,
+    protected _name: string,
+    protected _birthDate: Date,
     protected _examsGrades: number[],
     protected _projectsGrades: number[]
   ) {
-    super(name, birthDate);
+    super(_name, _birthDate);
 
     if (!this.areValidExamsGrades()) {
       this.handleInvalidExamsGrades();
