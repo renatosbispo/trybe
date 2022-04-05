@@ -16,6 +16,9 @@ new ExerciseHeader('Exercise 1');
 
 const person = new Person('Renato Bispo', validDate);
 
+// Throws error (cannot set age)
+// person.age = 18;
+
 person.printInfo();
 
 // Throws error (name too short)
@@ -36,6 +39,9 @@ const student = new Student(
   validExamsGrades,
   validProjectsGrades
 );
+
+// Throws compilation error (assignement to read-only property)
+// student.id = 'new-id';
 
 student.printInfo();
 

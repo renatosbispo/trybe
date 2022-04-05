@@ -2,15 +2,15 @@ import { v4 as uuidv4 } from 'uuid';
 import Person from './Person';
 
 export default class Student extends Person {
-  public id: string;
+  public readonly id: string;
   protected maxExamsGradesLength: number = 4;
   protected maxProjectsGradesLength: number = 2;
 
   constructor(
     public name: string,
     public birthDate: Date,
-    private _examsGrades: number[],
-    private _projectsGrades: number[]
+    protected _examsGrades: number[],
+    protected _projectsGrades: number[]
   ) {
     super(name, birthDate);
 
@@ -25,47 +25,61 @@ export default class Student extends Person {
     this.id = uuidv4();
   }
 
-  protected areValidExamsGrades() {
+  protected areValidExamsGrades(): boolean {
     return this._examsGrades.length <= this.maxExamsGradesLength;
   }
 
-  protected areValidProjectsGrades() {
+  protected areValidProjectsGrades(): boolean {
     return this._projectsGrades.length <= this.maxProjectsGradesLength;
   }
 
-  public getExamsGradesAverage() {
+  public getExamsGradesAverage(): number {
     return this.getGradesAverage(this._examsGrades);
   }
 
-  protected getGradesSum(grades: number[]) {
+  protected getGradesSum(grades: number[]): number {
     return grades.reduce((total, grade) => total + grade);
   }
 
-  protected getGradesAverage(grades: number[]) {
+  protected getGradesAverage(grades: number[]): number {
     return this.getGradesSum(grades) / grades.length;
   }
 
-  public getProjectsGradesAverage() {
+  public getProjectsGradesAverage(): number {
     return this.getGradesAverage(this._projectsGrades);
   }
 
-  protected handleInvalidExamsGrades() {
+  protected handleInvalidExamsGrades(): void {
     throw new Error(
       `Expected to receive a maximum of ${this.maxExamsGradesLength} exams grades.`
     );
   }
 
-  protected handleInvalidProjectsGrades() {
+  protected handleInvalidProjectsGrades(): void {
     throw new Error(
       `Expected to receive a maximum of ${this.maxProjectsGradesLength} projects grades.`
     );
   }
 
-  get examsGrades() {
+  public printInfo(endLine: string = '\n'): void {
+    super.printInfo('');
+    console.log('Student ID:', this.id);
+    console.log('Exams grades:', this.examsGrades);
+    console.log('Exams grades average:', this.getExamsGradesAverage());
+    console.log('Projects grades:', this.projectsGrades);
+
+    console.log(
+      'Projects grades average:',
+      this.getProjectsGradesAverage(),
+      endLine
+    );
+  }
+
+  get examsGrades(): number[] {
     return this._examsGrades;
   }
 
-  get projectsGrades() {
+  get projectsGrades(): number[] {
     return this._projectsGrades;
   }
 
