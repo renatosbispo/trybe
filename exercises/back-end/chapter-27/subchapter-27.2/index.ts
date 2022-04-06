@@ -2,6 +2,7 @@ import ExerciseHeader from './ExerciseHeader';
 import Person from './Person';
 import Student from './Student';
 import Subject from './Subject';
+import Teacher from './Teacher';
 
 const validDate = new Date('October 19, 1996');
 const validDate2 = new Date('April 4, 1998');
@@ -77,3 +78,33 @@ const history = new Subject('History');
 
 math.printInfo();
 history.printInfo();
+
+// Exercise 5
+new ExerciseHeader('Exercise 5');
+
+const thales = new Teacher(
+  'Thales of Miletus',
+  validDate,
+  validDate2,
+  5000,
+  math
+);
+
+// Throws error (future admission date)
+// new Teacher('Herodotus', validDate, futureDate, 5000, history);
+
+// Throws error (name too short)
+//  new Teacher('He', validDate, validDate2, 5000, history);
+
+// Throws compilation error (assignement to read-only property)
+// thales.admissionDate = new Date();
+// thales.age = 50;
+// thales.registration = 'new-registration-string';
+
+// Throws error (name too short)
+// thales.name = 'Th';
+
+// Throws error (negative salary)
+// thales.salary = -5000;
+
+thales.printInfo();
