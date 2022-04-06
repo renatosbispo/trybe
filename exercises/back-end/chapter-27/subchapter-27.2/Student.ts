@@ -61,7 +61,7 @@ export default class Student extends Person {
     );
   }
 
-  public printInfo(endLine: string = '\n'): void {
+  public printInfo(lineEnd: string = '\n'): void {
     super.printInfo('');
     console.log('Student ID:', this.id);
     console.log('Exams grades:', this.examsGrades);
@@ -71,7 +71,7 @@ export default class Student extends Person {
     console.log(
       'Projects grades average:',
       this.getProjectsGradesAverage(),
-      endLine
+      lineEnd
     );
   }
 

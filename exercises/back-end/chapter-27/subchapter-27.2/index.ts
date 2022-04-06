@@ -1,6 +1,7 @@
 import ExerciseHeader from './ExerciseHeader';
 import Person from './Person';
 import Student from './Student';
+import Subject from './Subject';
 
 const validDate = new Date('October 19, 1996');
 const validDate2 = new Date('April 4, 1998');
@@ -63,3 +64,16 @@ student.printInfo();
 //   validExamsGrades,
 //   invalidProjectsGrades
 // );
+
+// Exercise 4
+new ExerciseHeader('Exercise 4');
+
+const math = new Subject('Mathematics');
+const history = new Subject('History');
+
+// Throws error (name too short)
+// math.name = 'Ma';
+// history.name = 'Hi';
+
+math.printInfo();
+history.printInfo();
