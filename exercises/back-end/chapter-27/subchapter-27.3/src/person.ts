@@ -1,9 +1,15 @@
+import PrintConstructorName from './types/PrintConstructorName';
+
 export default abstract class Person {
   public readonly age: number;
   protected maxAge: number = 120;
   protected minNameLength: number = 3;
 
-  constructor(protected _name: string, protected _birthDate: Date) {
+  constructor(
+    protected printConstructorName: PrintConstructorName,
+    protected _name: string,
+    protected _birthDate: Date
+  ) {
     this.age = this.calculateAge();
 
     if (!this.isValidBirthDate()) {
@@ -34,14 +40,24 @@ export default abstract class Person {
   }
 
   protected isValidBirthDate(): boolean {
-    return Date.now() - this._birthDate.getTime() > 0 && this.age <= this.maxAge;
+    return (
+      Date.now() - this._birthDate.getTime() > 0 && this.age <= this.maxAge
+    );
   }
 
   protected isValidName(name: string = this._name): boolean {
     return name.length >= this.minNameLength;
   }
 
-  public abstract printInfo(lineEnd: string): void
+  protected abstract printPublicProperties(): void;
+
+  public printInfo(): void {
+    this.printConstructorName(this.constructor.name);
+    console.log('Name:', this.name);
+    console.log('Age:', this.age);
+    this.printPublicProperties();
+    console.log('');
+  }
 
   get name(): string {
     return this._name;

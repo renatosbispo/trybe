@@ -29,12 +29,12 @@ export default class ConsoleHeader {
   protected static printHeader(header: string, separatorChar: string) {
     const separator = this.buildSeparator(header.length, separatorChar);
 
-    console.log(`\n${header}`);
+    console.log(`${header}`);
     console.log(`${separator}\n`);
   }
 
   public static H1(header: string): void {
-    this.printHeader(header, this.DefaultSeparatorChar.H1);
+    ConsoleHeader.printHeader(header, ConsoleHeader.DefaultSeparatorChar.H1);
   }
 
   public H1(header: string): void {
@@ -42,7 +42,7 @@ export default class ConsoleHeader {
   }
 
   public static H2(header: string): void {
-    this.printHeader(header, this.DefaultSeparatorChar.H2);
+    ConsoleHeader.printHeader(header, ConsoleHeader.DefaultSeparatorChar.H2);
   }
 
   public H2(header: string): void {
@@ -50,7 +50,7 @@ export default class ConsoleHeader {
   }
 
   public static H3(header: string): void {
-    this.printHeader(header, this.DefaultSeparatorChar.H3);
+    ConsoleHeader.printHeader(header, ConsoleHeader.DefaultSeparatorChar.H3);
   }
 
   public H3(header: string): void {
