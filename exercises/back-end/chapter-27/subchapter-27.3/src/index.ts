@@ -1,4 +1,5 @@
 import Employee from './employee';
+import Evaluation from './evaluation';
 import ConsoleHeader from './lib/console-header';
 import Student from './student';
 import Subject from './subject';
@@ -127,3 +128,32 @@ const student = new Student(
 // );
 
 student.printInfo();
+
+// Exercise 3
+
+const evaluation = new Evaluation(ConsoleHeader.H3, 40, teacher, 'Project');
+
+// Throws error (invalid score)
+//
+// new Evaluation(ConsoleHeader.H3, -1, teacher, 'Project');
+// new Evaluation(ConsoleHeader.H3, 51, teacher, 'Project');
+// new Evaluation(ConsoleHeader.H3, -1, teacher, 'Exam');
+// new Evaluation(ConsoleHeader.H3, 26, teacher, 'Exam');
+
+evaluation.score = 20;
+evaluation.type = 'Exam';
+
+// Throws error (invalid score)
+//
+// evaluation.score = 30;
+// evaluation.score = -1;
+
+evaluation.type = 'Project';
+evaluation.score = 45;
+
+// Throws error (invalid score)
+//
+// evaluation.score = 51;
+// evaluation.score = -1;
+
+evaluation.printInfo();
