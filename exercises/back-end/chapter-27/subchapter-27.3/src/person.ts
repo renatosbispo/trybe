@@ -16,9 +16,7 @@ export default abstract class Person {
       this.handleInvalidBirthDate();
     }
 
-    if (!this.isValidName()) {
-      this.handleInvalidName();
-    }
+    this.name = this._name;
   }
 
   protected calculateAge(): number {
