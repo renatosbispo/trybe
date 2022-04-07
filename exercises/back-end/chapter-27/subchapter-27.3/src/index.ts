@@ -1,8 +1,12 @@
 import BetterStudent from './better-student';
+import BetterStudent2 from './better-student-2';
 import Employee from './employee';
 import Evaluation from './evaluation';
 import EvaluationResult from './evaluation-result';
+import EvaluationResult2 from './evaluation-result-2';
+import Exam from './exam';
 import ConsoleHeader from './lib/console-header';
+import Project from './project';
 import Student from './student';
 import Subject from './subject';
 import Teacher from './teacher';
@@ -195,3 +199,32 @@ const betterStudent = new BetterStudent(
 );
 
 betterStudent.printInfo();
+
+// Exercise 4
+ConsoleHeader.H2('Exercise 4');
+
+const exam = new Exam(ConsoleHeader.H3, 20, teacher);
+const project = new Project(ConsoleHeader.H3, 40, teacher);
+
+// Throws error (invalid score)
+//
+// new Exam(ConsoleHeader.H3, -1, teacher);
+// new Exam(ConsoleHeader.H3, 30, teacher);
+// new Project(ConsoleHeader.H3, -1, teacher);
+// new Project(ConsoleHeader.H3, 60, teacher);
+
+const examResult = new EvaluationResult2(ConsoleHeader.H3, exam, 15);
+
+const projectResult = new EvaluationResult2(ConsoleHeader.H3, project, 35);
+
+const betterStudent2 = new BetterStudent2(
+  ConsoleHeader.H3,
+  'Renato Bispo',
+  validDate,
+  [examResult, projectResult]
+);
+
+exam.printInfo();
+project.printInfo();
+
+betterStudent2.printInfo();
