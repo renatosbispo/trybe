@@ -15,9 +15,7 @@ export default class Employee extends Person {
       this.handleInvalidAdmissionDate();
     }
 
-    if (!this.isValidSalary()) {
-      this.handleInvalidSalary();
-    }
+    this.salary = this._salary;
   }
 
   protected handleInvalidAdmissionDate(): void {
