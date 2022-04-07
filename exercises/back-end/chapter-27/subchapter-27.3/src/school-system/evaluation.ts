@@ -1,5 +1,5 @@
 import Teacher from './teacher';
-import PrintConstructorName from './types/PrintConstructorName';
+import PrintConstructorName from '../types/PrintConstructorName';
 
 enum EvaluationType {
   Exam = 'Exam',

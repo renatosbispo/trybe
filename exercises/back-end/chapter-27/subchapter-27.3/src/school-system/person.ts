@@ -1,4 +1,4 @@
-import PrintConstructorName from './types/PrintConstructorName';
+import PrintConstructorName from '../types/PrintConstructorName';
 
 export default abstract class Person {
   public readonly age: number;

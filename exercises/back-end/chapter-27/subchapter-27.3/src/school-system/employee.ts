@@ -1,4 +1,4 @@
-import PrintConstructorName from './types/PrintConstructorName';
+import PrintConstructorName from '../types/PrintConstructorName';
 import Person from './person';
 
 export default class Employee extends Person {

@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
-import Enrollable from './interfaces/Enrollable';
-import PrintConstructorName from './types/PrintConstructorName';
+import Enrollable from '../interfaces/Enrollable';
+import PrintConstructorName from '../types/PrintConstructorName';
 import Person from './person';
-import EvaluationResult2 from './evaluation-result-2';
+import EvaluationResult from './evaluation-result';
 
-export default class BetterStudent2 extends Person implements Enrollable {
+export default class BetterStudent extends Person implements Enrollable {
   public readonly enrollment: string;
   protected maxExamsGradesLength: number = 4;
   protected maxProjectsGradesLength: number = 2;
@@ -13,14 +13,14 @@ export default class BetterStudent2 extends Person implements Enrollable {
     protected printConstructorName: PrintConstructorName,
     protected _name: string,
     protected _birthDate: Date,
-    public readonly evaluationsResults: EvaluationResult2[]
+    public readonly evaluationsResults: EvaluationResult[]
   ) {
     super(printConstructorName, _name, _birthDate);
 
     this.enrollment = this.generateEnrollment();
   }
 
-  public addEvaluationResult(...evaluationResult: EvaluationResult2[]): void {
+  public addEvaluationResult(...evaluationResult: EvaluationResult[]): void {
     this.evaluationsResults.push(...evaluationResult);
   }
 

@@ -1,6 +1,6 @@
 import AbstractEvaluation from './abstract-evaluation';
 import Teacher from './teacher';
-import PrintConstructorName from './types/PrintConstructorName';
+import PrintConstructorName from '../types/PrintConstructorName';
 
 export default class Project extends AbstractEvaluation {
   constructor(

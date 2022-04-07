@@ -1,5 +1,5 @@
 import Teacher from './teacher';
-import PrintConstructorName from './types/PrintConstructorName';
+import PrintConstructorName from '../types/PrintConstructorName';
 
 export default abstract class AbstractEvaluation {
   constructor(

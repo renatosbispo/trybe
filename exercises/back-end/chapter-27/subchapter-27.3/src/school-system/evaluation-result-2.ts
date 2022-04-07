@@ -1,5 +1,5 @@
 import AbstractEvaluation from './abstract-evaluation';
-import PrintConstructorName from './types/PrintConstructorName';
+import PrintConstructorName from '../types/PrintConstructorName';
 
 export default class EvaluationResult2 {
   constructor(

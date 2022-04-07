@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import Enrollable from './interfaces/Enrollable';
-import PrintConstructorName from './types/PrintConstructorName';
+import Enrollable from '../interfaces/Enrollable';
+import PrintConstructorName from '../types/PrintConstructorName';
 import Person from './person';
 
 export default class Student extends Person implements Enrollable {

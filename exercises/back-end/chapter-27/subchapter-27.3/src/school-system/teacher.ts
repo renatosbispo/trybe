@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import Employee from './employee';
-import Enrollable from './interfaces/Enrollable';
+import Enrollable from '../interfaces/Enrollable';
 import Subject from './subject';
-import PrintConstructorName from './types/PrintConstructorName';
+import PrintConstructorName from '../types/PrintConstructorName';
 
 export default class Teacher extends Employee implements Enrollable {
   public readonly enrollment: string;

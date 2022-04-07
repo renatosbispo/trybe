@@ -1,15 +1,15 @@
-import BetterStudent from './better-student';
-import BetterStudent2 from './better-student-2';
-import Employee from './employee';
-import Evaluation from './evaluation';
-import EvaluationResult from './evaluation-result';
-import EvaluationResult2 from './evaluation-result-2';
-import Exam from './exam';
+import BetterStudent from './school-system/better-student';
+import BetterStudent2 from './school-system/better-student-2';
+import Employee from './school-system/employee';
+import Evaluation from './school-system/evaluation';
+import EvaluationResult from './school-system/evaluation-result';
+import EvaluationResult2 from './school-system/evaluation-result-2';
+import Exam from './school-system/exam';
 import ConsoleHeader from './lib/console-header';
-import Project from './project';
-import Student from './student';
-import Subject from './subject';
-import Teacher from './teacher';
+import Project from './school-system/project';
+import Student from './school-system/student';
+import Subject from './school-system/subject';
+import Teacher from './school-system/teacher';
 
 const validDate = new Date('October 19, 1996');
 const validDate2 = new Date('April 4, 1998');
