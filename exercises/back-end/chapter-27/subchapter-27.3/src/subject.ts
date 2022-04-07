@@ -2,14 +2,12 @@ export default class Subject {
   protected minNameLength: number = 3;
 
   constructor(protected _name: string) {
-    if (!this.isValidName()) {
-      this.handleInvalidName();
-    }
+    this.name = this._name;
   }
 
   protected handleInvalidName(): void {
     throw new Error(
-      `Name must have at least ${this.minNameLength} characters.`
+      `Subject name must have at least ${this.minNameLength} characters.`
     );
   }
 
