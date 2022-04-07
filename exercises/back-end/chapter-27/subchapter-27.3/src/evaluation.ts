@@ -18,9 +18,7 @@ export default class Evaluation {
     public teacher: Teacher,
     protected _type: keyof typeof EvaluationType
   ) {
-    if (!this.isValidScore()) {
-      this.handleInvalidScore();
-    }
+    this.score = this._score;
   }
 
   protected getMaximumScore(
