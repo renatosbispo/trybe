@@ -1,3 +1,4 @@
+import BetterStudent from './better-student';
 import Employee from './employee';
 import Evaluation from './evaluation';
 import EvaluationResult from './evaluation-result';
@@ -177,3 +178,20 @@ const evaluationResult = new EvaluationResult(ConsoleHeader.H3, evaluation, 40);
 // );
 
 evaluationResult.printInfo();
+
+const evaluation2 = new Evaluation(ConsoleHeader.H3, 25, teacher, 'Exam');
+
+const evaluationResult2 = new EvaluationResult(
+  ConsoleHeader.H3,
+  evaluation2,
+  20
+);
+
+const betterStudent = new BetterStudent(
+  ConsoleHeader.H3,
+  'Samanta',
+  validDate2,
+  [evaluationResult, evaluationResult2]
+);
+
+betterStudent.printInfo();
