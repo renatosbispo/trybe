@@ -17,14 +17,8 @@ export default class Student extends Person implements Enrollable {
   ) {
     super(printConstructorName, _name, _birthDate);
 
-    if (!this.areValidExamsGrades()) {
-      this.handleInvalidExamsGrades();
-    }
-
-    if (!this.areValidProjectsGrades()) {
-      this.handleInvalidProjectsGrades();
-    }
-
+    this.examsGrades = this._examsGrades;
+    this.projectsGrades = this._projectsGrades;
     this.enrollment = this.generateEnrollment();
   }
 
