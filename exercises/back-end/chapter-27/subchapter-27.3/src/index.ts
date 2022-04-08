@@ -10,6 +10,8 @@ import Project from './school-system/project';
 import Student from './school-system/student';
 import Subject from './school-system/subject';
 import Teacher from './school-system/teacher';
+import OrderItem from './school-system/restaurant/order-item';
+import Order from './school-system/restaurant/order';
 
 const validDate = new Date('October 19, 1996');
 const validDate2 = new Date('April 4, 1998');
@@ -228,3 +230,45 @@ exam.printInfo();
 project.printInfo();
 
 betterStudent2.printInfo();
+
+// Exercise 5
+ConsoleHeader.H2('Exercise 5');
+
+const orderItem = new OrderItem('Coke', 2.99, 2);
+const orderItem2 = new OrderItem('Hamburguer', 4.99, 2);
+const orderItem3 = new OrderItem('Orange Juice', 1.99, 1);
+const orderItem4 = new OrderItem('Brownie', 1.59, 2);
+
+// Throws error (invalid name or price)
+//
+// new OrderItem('Co', 2.99, 2);
+// orderItem.name = 'Co';
+// new OrderItem('Coke', -1, 2);
+// orderItem.price = -1;
+
+const order = new Order(
+  ConsoleHeader.H3,
+  betterStudent2,
+  [orderItem, orderItem2],
+  'Cash',
+  0.25
+);
+
+// Throws error (invalid items or discount)
+//
+// new Order(ConsoleHeader.H3, betterStudent2, [], 'Cash', 0.25);
+// order.items = [];
+// new Order(ConsoleHeader.H3, betterStudent2, [orderItem, orderItem2], 'Cash', -1);
+// order.discount = -1;
+
+order.printInfo();
+
+const order2 = new Order(
+  ConsoleHeader.H3,
+  teacher,
+  [orderItem3, orderItem4],
+  'DebitCard',
+  0.1
+);
+
+order2.printInfo();
