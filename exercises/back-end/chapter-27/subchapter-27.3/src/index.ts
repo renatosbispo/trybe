@@ -12,6 +12,7 @@ import Subject from './school-system/subject';
 import Teacher from './school-system/teacher';
 import OrderItem from './school-system/restaurant/order-item';
 import Order from './school-system/restaurant/order';
+import OrderHistory from './school-system/restaurant/order-history';
 
 const validDate = new Date('October 19, 1996');
 const validDate2 = new Date('April 4, 1998');
@@ -272,3 +273,47 @@ const order2 = new Order(
 );
 
 order2.printInfo();
+
+// Exercise 6
+ConsoleHeader.H3('Exercise 6');
+
+const orderHistory = new OrderHistory([order, order2]);
+
+ConsoleHeader.H3('listByCustomer');
+
+orderHistory.listByCustomer(teacher);
+
+ConsoleHeader.H3('listBySortedValue');
+
+orderHistory.listBySortedValue('DESC');
+
+ConsoleHeader.H3('addOrder');
+
+const teacher2 = new Teacher(
+  ConsoleHeader.H3,
+  'Isaac',
+  validDate,
+  validDate3,
+  5000,
+  new Subject('History')
+);
+
+const orderItem5 = new OrderItem('Mate Tea', 2.99, 1);
+const orderItem6 = new OrderItem('Croissant', 4.59, 2);
+
+orderHistory.addOrder(
+    new Order(
+    ConsoleHeader.H3,
+    teacher2,
+    [orderItem5, orderItem6],
+    'CredictCard',
+    0.15
+  )
+);
+
+orderHistory.listBySortedValue('ASC');
+
+ConsoleHeader.H3('removeOrder');
+
+orderHistory.removeOrder(order, order2);
+orderHistory.listBySortedValue('ASC');

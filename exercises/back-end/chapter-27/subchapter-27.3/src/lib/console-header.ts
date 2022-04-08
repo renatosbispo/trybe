@@ -29,7 +29,7 @@ export default class ConsoleHeader {
   protected static printHeader(header: string, separatorChar: string) {
     const separator = this.buildSeparator(header.length, separatorChar);
 
-    console.log(`${header}`);
+    console.log(`\n${header}`);
     console.log(`${separator}\n`);
   }
 

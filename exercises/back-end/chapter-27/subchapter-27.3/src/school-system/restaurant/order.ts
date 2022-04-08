@@ -1,9 +1,13 @@
+import { v4 as uuidv4 } from 'uuid';
 import PaymentOption from './payment-option';
 import OrderItem from './order-item';
 import Person from '../person';
 import PrintConstructorName from '../../types/PrintConstructorName';
 
 export default class Order {
+  public id: string;
+  public createdAt: Date;
+
   constructor(
     protected printConstructorName: PrintConstructorName,
     protected _customer: Person,
@@ -15,6 +19,8 @@ export default class Order {
     this.discount = this.discount;
     this.items = this._items;
     this.paymentOption = this._paymentOption;
+    this.id = uuidv4();
+    this.createdAt = new Date();
   }
 
   protected areValidItems(items: OrderItem[] = this._items) {
@@ -51,6 +57,9 @@ export default class Order {
   }
 
   protected printPublicProperties(): void {
+    console.log('Order ID:', this.id);
+    console.log('Created at:', this.createdAt);
+
     console.log(
       'Customer:',
       this._customer.constructor.name,
