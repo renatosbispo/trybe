@@ -33,13 +33,13 @@ export default class OrderHistory {
   }
 
   public listBySortedValue(sortOrder: 'ASC' | 'DESC'): void {
-    const predicate =
+    const sortFn =
       sortOrder === 'ASC'
         ? (a: Order, b: Order) =>
             a.getOrderTotalWithDiscount() - b.getOrderTotalWithDiscount()
         : (a: Order, b: Order) =>
             b.getOrderTotalWithDiscount() - a.getOrderTotalWithDiscount();
 
-    console.log(JSON.stringify([...this.orders].sort(predicate), null, 2));
+    console.log(JSON.stringify([...this.orders].sort(sortFn), null, 2));
   }
 }
